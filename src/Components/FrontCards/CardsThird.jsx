@@ -1,20 +1,17 @@
 import React from 'react'
 import {
-  Card,
-  CardHeader,
-  CardBody,
-  Typography,
-  Button,
-} from "@material-tailwind/react";
-import { AiFillSchedule } from "react-icons/ai";
-import CardsSec from './CardsSec';
-import CardsThird from './CardsThird';
+    Card,
+    CardHeader,
+    CardBody,
+    Typography,
+    Button,
+  } from "@material-tailwind/react";
+  import { AiFillSchedule } from "react-icons/ai";
 
-const Cards = () => {
+const CardsThird = () => {
   return (
-    <>
-    <div className='ml-8'>
-     <Card className="w-full max-w-[58rem] flex-row ">
+    <div>
+      <Card className="w-full max-w-[58rem] flex-row m-4">
       <CardHeader
         shadow={false}
         floated={false}
@@ -58,8 +55,8 @@ const Cards = () => {
         <Typography color="gray" className="mb-8 font-normal">
         Your clothes are delivered to your door, crisply folded and your socks paired, ready to be worn or put into drawers.        </Typography> 
 
-
-        {/* <a href="#" className="inline-block">
+{/* 
+        <a href="#" className="inline-block">
           <Button variant="text" className="flex items-center gap-2">
             Learn More
             <svg
@@ -80,23 +77,8 @@ const Cards = () => {
         </a> */}
       </CardBody>
     </Card>
-
     </div>
-
-      <div className='flex justify-end mr-10'>
-        <CardsSec   className="transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"/>
-
-      </div>
-
-      <div className='ml-8'>
-        <CardsThird  className="transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"/>
-
-      </div>
-
-
-      
-    </>
   )
 }
 
-export default Cards
+export default CardsThird

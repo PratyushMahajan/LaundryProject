@@ -1,20 +1,17 @@
 import React from 'react'
 import {
-  Card,
-  CardHeader,
-  CardBody,
-  Typography,
-  Button,
-} from "@material-tailwind/react";
-import { AiFillSchedule } from "react-icons/ai";
-import CardsSec from './CardsSec';
-import CardsThird from './CardsThird';
+    Card,
+    CardHeader,
+    CardBody,
+    Typography,
+    Button,
+  } from "@material-tailwind/react";
+  import { AiFillSchedule } from "react-icons/ai";
 
-const Cards = () => {
+const CardsSec = () => {
   return (
-    <>
-    <div className='ml-8'>
-     <Card className="w-full max-w-[58rem] flex-row ">
+    <div>
+      <Card className="w-full max-w-[58rem] flex-row m-4">
       <CardHeader
         shadow={false}
         floated={false}
@@ -32,27 +29,28 @@ const Cards = () => {
         </Typography>
         <Typography variant="h2" color="blue-gray" className="mb-8">
       
-          WASH AND FOLD
+        Dry Cleaning
         </Typography>
         <Typography variant="h4" color="blue-gray" className="mb-6 flex items-center space-x-2">
   <AiFillSchedule />
-  <span>Schedule a pickup</span>
+  <span>Your clothes tracked    </span>
 </Typography>
         <Typography color="gray" className="mb-8 font-normal">
-        You can schedule a pickup any day of the week. Your Valet will arrive with your free, personalized Rinse bags between 8pm and 10pm to pick up your clothes.
-        </Typography>
+        You can schedule a pickup any day of the week. We’ll email you a photo and itemized inventory of everything being cleaned.
+
+</Typography>
         {/* second */}
         <Typography variant="h4" color="blue-gray" className="mb-6 flex items-center space-x-2">
   <AiFillSchedule />
-  <span>Professional cleaning care</span>
+  <span>Expert cleaning and stain removal
+  </span>
 </Typography>
         <Typography color="gray" className="mb-8 font-normal">
-        Lights and darks are separated and washed in cold water. Hypoallergenic detergent and fabric softener are free upon request
-        </Typography>
+        We carefully follow the care label and inspect your clothes for stains to ensure they receive the optimal treatment.        </Typography>
         {/* thireds */}
         <Typography variant="h4" color="blue-gray" className="mb-6 flex items-center space-x-2">
   <AiFillSchedule />
-  <span>Ready to wear
+  <span>Pressed and returned on hangers
   </span>
 </Typography>
         <Typography color="gray" className="mb-8 font-normal">
@@ -80,23 +78,8 @@ const Cards = () => {
         </a> */}
       </CardBody>
     </Card>
-
     </div>
-
-      <div className='flex justify-end mr-10'>
-        <CardsSec   className="transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"/>
-
-      </div>
-
-      <div className='ml-8'>
-        <CardsThird  className="transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"/>
-
-      </div>
-
-
-      
-    </>
   )
 }
 
-export default Cards
+export default CardsSec
