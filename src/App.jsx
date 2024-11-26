@@ -5,13 +5,13 @@ import Cards from "./Components/FrontCards/Cards"
 import Home from "./Components/Home/Home"
 import Login from "./Components/Auth/login/Login"
 import Signup from "./Components/Auth/signup/Signup"
-import User from "./Components/Dasboard/User"
+import User from "./Components/Dashboard/User"
 import Navbar from "./Components/Commonfile/Navbar"
 import Footer from "./Components/Commonfile/Footer"
+import '@fontsource/poppins';
 
 function App() {
  
-
   return (
     
      <Router>
@@ -27,8 +27,6 @@ function App() {
       <Footer/>
      </Router>
         
-       
-    
   )
 }
 
