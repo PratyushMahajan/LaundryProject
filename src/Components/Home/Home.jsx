@@ -1,4 +1,5 @@
 import React from 'react'
+import { Box, Button, Typography, Container } from '@mui/material';
 import Cards from "../FrontCards/Cards"
 
 const Home = () => {
