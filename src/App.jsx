@@ -2,6 +2,8 @@
 import React from "react"
 import { BrowserRouter as Router,Routes,Route } from "react-router-dom"
 
+
+
 import Home from "./Components/Home/Home"
 import Login from "./Components/Auth/login/Login"
 import Signup from "./Components/Auth/signup/Signup"
@@ -25,6 +27,7 @@ function App() {
        
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<Signup/>}/>
+
       </Routes>
       <Footer/>
      </Router>
