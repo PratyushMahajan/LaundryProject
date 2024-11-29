@@ -17,14 +17,14 @@ const DeliveryManProfile = () => {
     <Card className="mt-4 shadow">
       <Card.Body>
         {/* Profile Image */}
-        <div className="text-center">
+        {/* <div className="text-center">
           <img
             src="" // profile image
             //alt="Profile"
             className="rounded-circle mb-3"
             style={{ width: "100px", height: "100px", objectFit: "cover" }}
           />
-        </div>
+        </div> */}
 
         {/* Profile Details */}
         <h4 className="text-center">{name}</h4>

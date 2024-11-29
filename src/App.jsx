@@ -2,12 +2,18 @@
 import React from "react"
 import { BrowserRouter as Router,Routes,Route } from "react-router-dom"
 
+
+
 import Home from "./Components/Home/Home"
-import Login from "./Components/Auth/login/Login"
-import Signup from "./Components/Auth/signup/Signup"
-import User from "./Components/Dasboard/User"
+
+import User from "./Components/Dashboard/User"
 import Navbar from "./Components/Commonfile/Navbar"
 import Footer from "./Components/Commonfile/Footer"
+import './components/Auth/style/s.css';
+import '@fontsource/poppins';
+import LoginForm from "./Components/Auth/login/Login"
+import SignupForm from "./Components/Auth/signup/Signup"
+
 
 
 function App() {
@@ -22,8 +28,8 @@ function App() {
       <Route path="/users" element={<User/>}/>
       <Route path="/headers" element={<Headers/>}/>
        
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/signup" element={<Signup/>}/>
+        <Route path="/Login" element={<LoginForm/>}/>
+        <Route path="/Signup" element={<SignupForm/>}/>
       </Routes>
       <Footer/>
      </Router>
