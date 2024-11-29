@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
-import { Button, Container, Row, Col } from 'react-bootstrap';  // Corrected import for Button, Container, Row, Col
+import { Button, Container, Row, Col } from 'react-bootstrap';  
 import { Link } from 'react-router-dom';
 //import './style.css';
-import './style/s.css'
+import './s.css'
 
 function SignupForm() {
   const [firstName, setFirstName] = useState('');
