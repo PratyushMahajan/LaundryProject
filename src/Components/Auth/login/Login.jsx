@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 
 import { Link } from 'react-router-dom';
-import './s.css';
+import '../style/s.css';
 
 function LoginForm() {
   const [email, setEmail] = useState('');
@@ -40,7 +40,7 @@ function LoginForm() {
 
   return (
     
-    <div className="container mt-1">
+    <div className="container mt-1 " style={{maxWidth:'600px'}}>
       <h1 className =" font-weight-bold mb-4">Welcome Back!</h1>
       <form onSubmit={handleSubmit} noValidate>
         {error && <div style={{ color: 'red', marginBottom: '10px' }}>{error}</div>}
@@ -80,7 +80,7 @@ function LoginForm() {
         </button>
       </form>
       <p className="text-center mt-5 fs-5 " style={{color:"grey"}}>
-        Don't have an account? <Link to="/signup " className='text-decoration-none text-primary-custom' style={{ color: '#ff7f50' }}>Sign up</Link>
+        Don't have an account? <Link to="/signup " className='text-decoration-none text-primary-custom' >Sign up</Link>
       </p>
     </div>
   );

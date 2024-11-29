@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { Button, Container, Row, Col } from 'react-bootstrap';  
 import { Link } from 'react-router-dom';
 //import './style.css';
-import './s.css'
+import "../style/s.css";
 
 function SignupForm() {
   const [firstName, setFirstName] = useState('');
@@ -80,12 +80,12 @@ function SignupForm() {
         <Col md={6} className="text-center">
           <h1 className =" text-center font-weight-bold mb-4" style={{color:'#1e1f21'}}>Welcome to  Laundry Service</h1>
           <p className="text-center font-weight-grey mb-4 ">Save 3 hours this week by using our services.</p>
-          <Button className="btn  btn-lg rounded-4 p-4 mb-3 w-150 " style={{ backgroundColor: '#ff7f50', border:'none'}}   onClick={handleFormToggle}>
+          <Button className="btn  btn-lg rounded-4 p-4 mb-3 w-150 " style={{ backgroundColor: '#535bcd', border:'none'}}   onClick={handleFormToggle}>
             {isFormVisible ? 'Close' : 'Sign up with email'}  {/* Button text toggles based on form visibility */}
           </Button>
           <p className="text-center mt-5 fs-5 " style={{color:"grey"}}>
             Already have an account?<br/> 
-            <Link to="/login" className='text-decoration-none text-primary-custom' style={{ color: '#ff7f50' }}>Login</Link>
+            <Link to="/login" className='text-decoration-none text-primary-custom' >Login Instead</Link>
           </p>
         </Col>
 
@@ -192,8 +192,8 @@ function SignupForm() {
                 <button 
                     type="submit" 
                     disabled={!isFormValid} 
-                    className="btn btn-lg text-white rounded-4 p-3 mb-2 "  
-                    style={{background: "#e67350"}}>
+                    className="btn btn-lg text-white rounded-4 p-3 mt-2 "  
+                    style={{background: "#535bcd"}}>
 
                     Sign Up
                 </button>

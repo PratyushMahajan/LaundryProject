@@ -9,7 +9,7 @@ import Home from "./Components/Home/Home"
 import User from "./Components/Dashboard/User"
 import Navbar from "./Components/Commonfile/Navbar"
 import Footer from "./Components/Commonfile/Footer"
-import './components/style/s.css';
+import './components/Auth/style/s.css';
 import '@fontsource/poppins';
 import LoginForm from "./Components/Auth/login/Login"
 import SignupForm from "./Components/Auth/signup/Signup"
