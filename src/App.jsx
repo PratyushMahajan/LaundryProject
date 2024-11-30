@@ -6,15 +6,16 @@ import { BrowserRouter as Router,Routes,Route } from "react-router-dom"
 
 import Home from "./Components/Home/Home"
 
+import LoginForm from "./Components/Auth/login/Login"
+import SignupForm from "./Components/Auth/signup/Signup"
 import User from "./Components/Dashboard/User"
 import Navbar from "./Components/Commonfile/Navbar"
 import Footer from "./Components/Commonfile/Footer"
-import './components/Auth/style/s.css';
+import Partner from "./Components/Partner/Partner";
+
+
+
 import '@fontsource/poppins';
-import LoginForm from "./Components/Auth/login/Login"
-import SignupForm from "./Components/Auth/signup/Signup"
-
-
 
 function App() {
  
@@ -30,6 +31,7 @@ function App() {
        
         <Route path="/Login" element={<LoginForm/>}/>
         <Route path="/Signup" element={<SignupForm/>}/>
+        <Route path="/partner" element={<Partner />} />
       </Routes>
       <Footer/>
      </Router>
