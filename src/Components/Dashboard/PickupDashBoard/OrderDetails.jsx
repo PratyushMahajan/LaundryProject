@@ -39,6 +39,7 @@ const OrderDetails = () => {
       <Table bordered>
         <thead>
           <tr>
+            <th>Order ID</th>
             <th>Item</th>
             <th>Qty</th>
             <th>Price</th>
@@ -49,10 +50,11 @@ const OrderDetails = () => {
         <tbody>
           {orderData.map((order) => (
             <tr key={order.id}>
+              <td>{order.id}</td>
               <td>{order.item}</td>
               <td>{order.qty}</td>
-              <td>rs{order.price.toFixed(2)}</td>
-              <td>rs{(order.qty * order.price).toFixed(2)}</td>
+              <td>Rs.{order.price.toFixed(2)}</td>
+              <td>Rs.{(order.qty * order.price).toFixed(2)}</td>
               <td>
                 <button className="btn btn-primary btn-sm" onClick={() => handleMoreDetails(order)}>
                   View
