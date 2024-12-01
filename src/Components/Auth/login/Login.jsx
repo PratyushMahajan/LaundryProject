@@ -12,7 +12,7 @@ function LoginForm() {
 
   useEffect(() => {
     // Hide Navbar and Footer
-   document.getElementById('navbar').style.display = 'none';
+   //document.getElementById('navbar').style.display = 'none';
     document.getElementById('footer').style.display = 'none';
 
     const Login = document.getElementById('Login');
@@ -26,7 +26,7 @@ function LoginForm() {
     /*  if (specificButton) {
         specificButton.style.display = 'block'; // Restore the button visibility
       }*/
-     document.getElementById('navbar').style.display = 'block';
+     //document.getElementById('navbar').style.display = 'block';
       document.getElementById('footer').style.display = 'block';
     };
     
