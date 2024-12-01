@@ -21,7 +21,7 @@ const Footer = () => {
     setCurrentYear(year);
   }, []);
   return (
-    <div className='w-full h-screen relative z-10 bg-white'>
+    <div className='w-full  relative z-10 bg-white'>
       <div className="w-full min-h-[98%] bg-[#000000] bg-opacity-90 flex flex-col md:flex-row gap-20 py-10 px-5 relative">
         <div className="w-full py-6 text-center md:w-[30%] h-[100%]">
           <img className='ml-[25%] md:ml-12'  alt=""  />
@@ -49,14 +49,14 @@ const Footer = () => {
         </div>
         <div className="text-capitalize flex flex-col text-white text-center py-6 w-full md:w-[15%] h-[100%]">
           <h1 className="my-3 block font-bold text-lg">MAIN MENU</h1>
-          <a href="https://github.com/PrakashChoure2002" className="my-3 block">Home</a>
-          <a href="www.linkedin.com/in/prakash-choure-3087b71b2" className="my-3 block">Search</a>
+          <a href="https://github.com/PrakashChoure2002" className="my-3 block  text-white ">Home</a>
+          {/* <a href="www.linkedin.com/in/prakash-choure-3087b71b2" className="my-3 block">Search</a>
           <a href="https://github.com/PrakashChoure2002" className="my-3 block">Privicy Policy</a>
           <a href="www.linkedin.com/in/prakash-choure-3087b71b2" className="my-3 block">Shipping Info</a>
           <a href="www.linkedin.com/in/prakash-choure-3087b71b2" className="my-3 block">Latest News</a>
-          <a href="https://github.com/PrakashChoure2002" className="my-3 block">Catalog</a>
+          <a href="https://github.com/PrakashChoure2002" className="my-3 block">Catalog</a> */}
         </div>
-        <div className="text-capitalize flex flex-col text-white text-center py-6 w-full md:w-[15%] h-[100%]">
+        {/* <div className="text-capitalize flex flex-col text-white text-center py-6 w-full md:w-[15%] h-[100%]">
           <h1 className="my-3 block font-bold text-lg">QUICK VIEW</h1>
           <a href="www.linkedin.com/in/prakash-choure-3087b71b2" className="my-3 block">Best Product</a>
           <a href="https://github.com/PrakashChoure2002" className="my-3 block">Cosmetics</a>
@@ -64,23 +64,23 @@ const Footer = () => {
           <a href="https://github.com/PrakashChoure2002" className="my-3 block">Offer Collection</a>
           <a href="www.linkedin.com/in/prakash-choure-3087b71b2" className="my-3 block">Mega Collection</a>
           <a href="https://github.com/PrakashChoure2002" className="my-3 block">Training Collection</a>
-        </div>
+        </div> */}
         <div className="text-capitalize flex flex-col text-white text-center py-6 w-full md:w-[15%] h-[100%]">
           <h1 className="my-3 block font-bold text-lg">LINKS</h1>
-          <a href="https://github.com/PrakashChoure2002" className="my-3 block">About Us</a>
-          <a href="www.linkedin.com/in/prakash-choure-3087b71b2" className="my-3 block">Contact Us</a>
-          <a href="https://github.com/PrakashChoure2002" className="my-3 block">Faq</a>
+          <a href="https://github.com/PrakashChoure2002" className="my-3 block  text-white">About Us</a>
+          <a href="www.linkedin.com/in/prakash-choure-3087b71b2" className="my-3 block  text-white">Contact Us</a>
+          {/* <a href="https://github.com/PrakashChoure2002" className="my-3 block">Faq</a>
           <a href="www.linkedin.com/in/prakash-choure-3087b71b2" className="my-3 block">Portfolio</a>
           <a href="www.linkedin.com/in/prakash-choure-3087b71b2" className="my-3 block">Search</a>
           <a href="www.linkedin.com/in/prakash-choure-3087b71b2" className="my-3 block">Wishlist</a>
-          <a href="https://github.com/PrakashChoure2002" className="my-3 block">Lookbook</a>
+          <a href="https://github.com/PrakashChoure2002" className="my-3 block">Lookbook</a> */}
         </div> 
         <div className="text-capitalize flex flex-col text-white text-center py-6 w-full md:w-[15%] h-[100%]">
           <h1 className='font-bold text-lg'>STORE INFO</h1>
-          <a href="www.linkedin.com/in/prakash-choure-3087b71b2" className="my-3 block"><IoLocationOutline className='inline-block' />   Random Addres  <br />  India</a>
-          <a href="https://github.com/PrakashChoure2002" className="my-3 block"><IoCall className='inline-block' /> Call Us: +91-9826896140</a>
-          <a href="https://github.com/PrakashChoure2002" className="my-3 block"><MdOutlineEmail className='inline-block' /> Email Us: <br /> prakashchoure2002@gmail.com</a>
-          <a href="www.linkedin.com/in/prakash-choure-3087b71b2" className="my-3 block"><LiaFaxSolid className='inline-block' /> Fax:9826896140 </a>
+          <a href="www.linkedin.com/in/prakash-choure-3087b71b2" className="my-3 block  text-white"><IoLocationOutline className='inline-block  text-white' />   Random Addres  <br />  India</a>
+          <a href="https://github.com/PrakashChoure2002" className="my-3 block  text-white"><IoCall className='inline-block  text-white' /> Call Us: +91-9826896140</a>
+          <a href="https://github.com/PrakashChoure2002" className="my-3 block  text-white"><MdOutlineEmail className='inline-block  text-white' /> Email Us: <br /> prakashchoure2002@gmail.com</a>
+          <a href="www.linkedin.com/in/prakash-choure-3087b71b2" className="my-3 block  text-white"><LiaFaxSolid className='inline-block  text-white' /> Fax:9826896140 </a>
         </div>
         <div className="absolute right-6 bottom-10 p-4 bg-red-400 rounded-full border-4 border-white"><a href=""><MdKeyboardDoubleArrowUp /></a></div>
       </div>

@@ -17,6 +17,7 @@ import ShopOwner from "./Components/Dashboard/ShopOwner"
 
 
 import '@fontsource/poppins';
+import NavBar1 from "./Components/Commonfile/NavBar1"
 
 function App() {
  
@@ -24,7 +25,8 @@ function App() {
   return (
     
      <Router>
-      <Navbar/>
+      <NavBar1/>
+      {/* <Navbar/> */}
       <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/users" element={<User/>}/>

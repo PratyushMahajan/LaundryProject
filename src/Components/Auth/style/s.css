@@ -63,7 +63,7 @@ body {
   }
   
   /* Button Styles */
-  button {
+  /* button {
     width: 100%;
     max-width: 425px;
     display: block;
@@ -76,9 +76,9 @@ body {
     border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
+  } */
   
-  button:hover {
+  /* button:hover {
     background-color: #4e54ac;
    transform: scale(1.05);
 
@@ -88,7 +88,7 @@ body {
     background-color: #535bcd;
     color: #2c2a2a;
     cursor: not-allowed;
-  }
+  } */
   
  
   
