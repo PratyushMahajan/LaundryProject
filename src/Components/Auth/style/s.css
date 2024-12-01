@@ -61,6 +61,10 @@ body {
     outline: none;
     box-shadow: 0 0 5px rgba(187, 186, 185, 0.5);
   }
+
+  .dropdown-select {
+    width: 425px;
+  }
   
   /* Button Styles */
   button {

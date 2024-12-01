@@ -1,6 +1,5 @@
-
 import React from "react"
-import { BrowserRouter as Router,Routes,Route } from "react-router-dom"
+import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
 
 
 
@@ -23,7 +22,9 @@ function App() {
   return (
     
      <Router>
+      <div id="navbar">
       <Navbar/>
+      </div>
       <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/users" element={<User/>}/>
@@ -33,7 +34,9 @@ function App() {
         <Route path="/Signup" element={<SignupForm/>}/>
         <Route path="/partner" element={<Partner />} />
       </Routes>
+      <div id="footer">
       <Footer/>
+      </div>
      </Router>
         
        

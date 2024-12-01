@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 
 import { Link } from 'react-router-dom';
@@ -9,6 +9,29 @@ function LoginForm() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isFormValid, setIsFormValid] = useState(false);
+
+  useEffect(() => {
+    // Hide Navbar and Footer
+   document.getElementById('navbar').style.display = 'none';
+    document.getElementById('footer').style.display = 'none';
+
+    const Login = document.getElementById('Login');
+  /*if (specificButton) {
+    specificButton.style.display = 'none';
+  }*/ 
+
+
+    // Cleanup on unmount
+    return () => {
+    /*  if (specificButton) {
+        specificButton.style.display = 'block'; // Restore the button visibility
+      }*/
+     document.getElementById('navbar').style.display = 'block';
+      document.getElementById('footer').style.display = 'block';
+    };
+    
+  }, []);
+
 
  const validateForm = () => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -40,10 +63,12 @@ function LoginForm() {
 
   return (
     
-    <div className="container mt-1 " style={{maxWidth:'600px'}}>
-      <h1 className =" font-weight-bold mb-4">Welcome Back!</h1>
+    <div className="container mt-1 d-flex justify-content-center align-items-center vh-100" >
       <form onSubmit={handleSubmit} noValidate>
         {error && <div style={{ color: 'red', marginBottom: '10px' }}>{error}</div>}
+
+        <h1 className =" font-weight-bold mb-4  ">Welcome Back!</h1>
+
 
         <div className='mb-3'>
           <input
@@ -68,20 +93,22 @@ function LoginForm() {
             value={password}
             onChange={handlePasswordChange}
             required
-            className="rounded-3 p-4 mb-3  bg-grey"
+            className="rounded-3 p-4 mb-4  bg-grey"
           />
           <div className="form-text text-danger"> 
             {password && password.length < 6 && 'Password must be at least 6 characters long.'}
           </div>
         </div>
 
-        <button type="submit" disabled={!isFormValid}>
+        <button type="submit"  disabled={!isFormValid}>
           Log In
         </button>
-      </form>
-      <p className="text-center mt-5 fs-5 " style={{color:"grey"}}>
+
+        <p className="text-center mt-5 fs-5 text-center" style={{color:"grey"}}>
         Don't have an account? <Link to="/signup " className='text-decoration-none text-primary-custom' >Sign up</Link>
       </p>
+      </form>
+      
     </div>
   );
 }
