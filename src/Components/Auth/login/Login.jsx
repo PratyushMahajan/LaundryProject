@@ -16,7 +16,8 @@ function LoginForm() {
     document.getElementById('footer').style.display = 'none';
 
     const Login = document.getElementById('Login');
-  /*if (specificButton) {
+  
+    /*if (specificButton) {
     specificButton.style.display = 'none';
   }*/ 
 
