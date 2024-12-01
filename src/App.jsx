@@ -1,6 +1,5 @@
-
 import React from "react"
-import { BrowserRouter as Router,Routes,Route } from "react-router-dom"
+import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
 
 
 
@@ -38,7 +37,9 @@ function App() {
         <Route path="/Signup" element={<SignupForm/>}/>
         <Route path="/partner" element={<Partner />} />
       </Routes>
+      <div id="footer">
       <Footer/>
+      </div>
      </Router>
         
        

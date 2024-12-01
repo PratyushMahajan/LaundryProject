@@ -1,7 +1,9 @@
-import React, { useState, useRef } from 'react';
+ import React, { useState, useRef, useEffect } from 'react';
 import { Button, Container, Row, Col } from 'react-bootstrap';  
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+//import { FaArrowLeft } from 'react-icons/fa';
 //import './style.css';
+
 import "../style/s.css";
 
 function SignupForm() {
@@ -11,10 +13,31 @@ function SignupForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [isFirstNameFocused, setIsFirstNameFocused]=useState(false);
+  const [isLastNameFocused, setIsLastNameFocused] = useState(false);
+  //const navigate = useNavigate();
+  //const [role, setRole] = useState('');
+
+  useEffect(() => {
+    // Hide Navbar and Footer
+    //document.getElementById('navbar').style.display = 'none';
+    document.getElementById('footer').style.display = 'none';
+
+    // Cleanup on unmount
+    return () => {
+      //document.getElementById('navbar').style.display = 'block';
+      document.getElementById('footer').style.display = 'block';
+    };
+  }, []);
 
   const formRef = useRef(null);
 
+  /*const goBack = () => {
+    navigate(-1)
+  }*/
+
   const [isFormVisible, setFormVisible] = useState(false);  // React hook to manage form visibility
+ 
 
   const handleFormToggle = () => {  // Function to toggle form visibility
     setFormVisible(!isFormVisible);  // Toggle between true and false to show/hide form
@@ -50,7 +73,7 @@ function SignupForm() {
   };
 
   const handlePhoneNumberChange = (e) => {
-    const value = e.target.value.replace(/[^0-9]/g, '');  // Ensures only numbers are entered
+    const value = e.target.value.replace(/[^0-9]/g, '');  
     setPhoneNumber(value);
     validateForm();
   };
@@ -75,9 +98,11 @@ function SignupForm() {
   
 
   return (
+    
     <Container fluid style={{ minHeight: '100vh' }}>
       <Row className="align-items-center d-flex" style={{ minHeight: '100vh' }}>
-        <Col md={6} className="text-center">
+     
+        <Col md={6} className="text-center align-items-center">
           <h1 className =" text-center font-weight-bold mb-4" style={{color:'#1e1f21'}}>Welcome to  Laundry Service</h1>
           <p className="text-center font-weight-grey mb-4 ">Save 3 hours this week by using our services.</p>
           <Button className="btn  btn-lg rounded-4 p-4 mb-3 w-150 " style={{ backgroundColor: '#535bcd', border:'none'}}   onClick={handleFormToggle}>
@@ -89,22 +114,32 @@ function SignupForm() {
           </p>
         </Col>
 
-        <Col md={6} className="text-center">
-          <img src="https://via.placeholder.com/400" alt="Laundry" className="img-fluid" />
+        <Col md={6} className="p=0 align-img-fluid w-150 h-150 object-fit-cover"   >
+          <img src="src\Components\Auth\image\laundryservice2.jpg" alt="Laundry" className=" align-img-fluid w-150 h-150 object-fit-cover" 
+              />
+          
         </Col>
       </Row>
 
       <div ref={formRef} className="signup-form">
-        <h2 className="form-heading">Sign Up</h2>
+
+     
+        
 
         <form onSubmit={handleSubmit}>
           {error && <div className="error-message" style={{ color: 'red', marginBottom: '10px' }}>{error}</div>} {/* Displays error messages */}
           
+         
             
         
               {/* Corrected class name from "button" to "Button" and "container" to "Container" */}
               <div className={`form-container ${isFormVisible ? 'show' : ''}`}>  {/* Conditional class for showing form */}
+                
               <h2 className =" font-weight-bold mb-4">Let's Get Started!</h2>
+
+         
+            
+             
               
 
                <div className="form-group ">
@@ -114,12 +149,16 @@ function SignupForm() {
                     placeholder="First name"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
+                    onFocus={() => setIsFirstNameFocused(true)}
                     required
-                    className="form-group  form-group-lg rounded-4 p-3 mb-1 border-0"
+                    className="form-group  form-group-lg rounded-4 p-3 mb-2 border-0"
                   />
+                   {isFirstNameFocused && !firstName && (
                   <div className="form-text text-danger mb-1">
                     Please Enter your First name
                 </div>
+              )}
+
                 </div>
 
                 <div className="form-group">
@@ -129,13 +168,16 @@ function SignupForm() {
                     placeholder="Last name"
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
+                    onFocus={() => setIsLastNameFocused(true)}
                     required
-                    className="form-group  form-group-lg rounded-4 p-3 mb-1 border-0 "
+                    className="form-group  form-group-lg rounded-4 p-3 mb-2 border-0 "
                   />
+                   {isLastNameFocused && !lastName && (
                   <div className="form-text text-danger mb-1">
                   Please Enter your last name
 
                 </div>
+                  )}
                 </div>
 
 
@@ -148,7 +190,7 @@ function SignupForm() {
                     value={phoneNumber}
                     onChange={handlePhoneNumberChange}
                     required
-                    className="form-group  form-group-lg rounded-4 p-3 mb-1 border-0"
+                    className="form-group  form-group-lg rounded-4 p-3 mb-2 border-0"
 
                   />
 
@@ -184,9 +226,11 @@ function SignupForm() {
                     className="form-group  form-group-lg  rounded-4 p-3 mb-1 border-0"
 
                   />
+                   {password && password.length < 6 && (
                   <div className="form-text text-danger mb-1">
                         Password must be at least 6 characters long.
                     </div>
+                   )}
                 </div>
 
                 <button 
