@@ -1,10 +1,16 @@
-import React from 'react'
-import { Box, Button, Typography, Container } from '@mui/material';
-import Cards from "../FrontCards/Cards"
+import React, { useState } from 'react'; 
+import { Box, Select, MenuItem, Typography, Container } from '@mui/material';
+import Cards from "../FrontCards/Cards";
 
 const Home = () => {
+  const [selectedCity, setSelectedCity] = useState(''); 
+
+  const handleChange = (event) => {
+    setSelectedCity(event.target.value); 
+  };
+
   return (
-    <div >
+    <div>
       <Box
         sx={{
           position: 'relative',
@@ -29,7 +35,7 @@ const Home = () => {
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            zIndex: -1, 
+            zIndex: -1,
           }}
         >
           <source src="https://video.rinse.com/assets/rebrand/video/landing_2023.mp4" type="video/mp4" />
@@ -47,39 +53,54 @@ const Home = () => {
           }}
         />
 
-        <Container sx={{ textAlign: 'left', ml: 8, mt: -10}}>
-          <Typography sx={{ fontWeight: 'bold', mb: 2, fontFamily: 'Poppins, sans-serif', fontSize: '80px'}}>
-            The Smartest Way<br></br>to Do Laundry
+        <Container sx={{ textAlign: 'left', ml: 8, mt: -10 }}>
+          <Typography sx={{ fontWeight: 'bold', mb: 2, fontFamily: 'Poppins, sans-serif', fontSize: '80px' }}>
+            The Smartest Way<br />to Do Laundry
           </Typography>
-          <Typography sx={{ fontWeight: 'bold', mb: 4, fontFamily: 'Poppins, sans-serif', fontSize: '20px', letterSpacing: 0.9}}>
-            Rinse picks up, cleans, and delivers<br></br>your laundry and dry cleaning.
+          <Typography sx={{ fontWeight: 'bold', mb: 4, fontFamily: 'Poppins, sans-serif', fontSize: '20px', letterSpacing: 0.9 }}>
+            Rinse picks up, cleans, and delivers<br />your laundry and dry cleaning.
           </Typography>
           <Box sx={{ display: 'flex', justifyContent: 'left', gap: 2 }}>
-            <Button
-              variant="contained"
-              sx={{
-                bgcolor: 'primary.main',
-                '&:hover': { bgcolor: 'primary.dark' },
-              }}
-            >
-            Pickup Tomorrow
-            </Button>
-            <Button
+            <Select
+              value={selectedCity}
+              onChange={handleChange}
+              displayEmpty 
               variant="outlined"
               sx={{
-                color: '#black',
-                borderColor: '#fff',
-                '&:hover': { borderColor: '#ccc', color: '#ccc' },
+                bgcolor: '#fff',
+                fontWeight: 700,
+                fontFamily: 'Poppins, sans-serif',
+                color: selectedCity ? 'black' : 'gray', 
+                '& .MuiSelect-select': {
+                  color: selectedCity ? 'black' : 'gray',
+                },
+                '&:hover .MuiOutlinedInput-notchedOutline': {
+                  borderColor: 'primary.main',
+                },
               }}
             >
-              Add Address
-            </Button>
+
+              <MenuItem value="" disabled>
+                Select your Location
+              </MenuItem>
+              <MenuItem value="Bengaluru">Bengaluru</MenuItem>
+              <MenuItem value="Chennai">Chennai</MenuItem>
+              <MenuItem value="Hyderabad">Hyderabad</MenuItem>
+              <MenuItem value="Mumbai">Mumbai</MenuItem>
+              <MenuItem value="Pune">Pune</MenuItem>
+
+            </Select>
+
           </Box>
+         
+          <Typography sx={{ mt: 2, color: 'white', fontFamily: 'Poppins, sans-serif' }}>
+            
+          </Typography>
         </Container>
-      </Box>    
-      <Cards/>
+      </Box>
+      <Cards />
     </div>
   );
 };
 
-export default Home
+export default Home;
