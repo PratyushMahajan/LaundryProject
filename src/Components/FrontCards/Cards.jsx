@@ -21,31 +21,31 @@ const Cards = () => {
         className="m-0 w-2/5 shrink-0 rounded-r-none"
       >
         <img
-          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
+          src="https://t3.ftcdn.net/jpg/06/81/26/90/360_F_681269043_IPTzItGqLolggMXPn8RR5ul3U3mSfuSB.jpg"
           alt="card-image"
           className="h-full w-full object-cover"
         />
       </CardHeader>
       <CardBody>
-        <Typography variant="h6" color="gray" className="mb-4 uppercase">
+        {/* <Typography variant="h6" color="gray" className="mb-4 uppercase"> 
           startups
-        </Typography>
+        </Typography>*/}
         <Typography variant="h2" color="blue-gray" className="mb-8">
       
           WASH AND FOLD
         </Typography>
         <Typography variant="h4" color="blue-gray" className="mb-6 flex items-center space-x-2">
-  <AiFillSchedule />
-  <span>Schedule a pickup</span>
-</Typography>
+          <AiFillSchedule />
+          <span>Schedule a pickup</span>
+        </Typography>
         <Typography color="gray" className="mb-8 font-normal">
         You can schedule a pickup any day of the week. Your Valet will arrive with your free, personalized Rinse bags between 8pm and 10pm to pick up your clothes.
         </Typography>
         {/* second */}
         <Typography variant="h4" color="blue-gray" className="mb-6 flex items-center space-x-2">
-  <AiFillSchedule />
-  <span>Professional cleaning care</span>
-</Typography>
+          <AiFillSchedule />
+          <span>Professional cleaning care</span>
+        </Typography>
         <Typography color="gray" className="mb-8 font-normal">
         Lights and darks are separated and washed in cold water. Hypoallergenic detergent and fabric softener are free upon request
         </Typography>
@@ -88,10 +88,10 @@ const Cards = () => {
 
       </div>
 
-      <div className='ml-8 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:bg-blue-gray-200'>
+      {/*<div className='ml-8 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:bg-blue-gray-200'>
         <CardsThird />
 
-      </div>
+      </div>*/}
 
 
       
