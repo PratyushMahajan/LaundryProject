@@ -100,14 +100,21 @@ function LoginForm() {
             {password && password.length < 6 && 'Password must be at least 6 characters long.'}
           </div>
         </div>
-
-        <button type="submit"  disabled={!isFormValid}>
-          Log In
+      <center>
+        <button type="submit" /* disabled={!isFormValid} */className='btn btn-primary btn-lg'>
+          Login
         </button>
+      </center>
+        
 
-        <p className="text-center mt-5 fs-5 text-center" style={{color:"grey"}}>
+      <p className="text-center mt-4 fs-5 text-center" style={{color:"grey"}}>
         Don't have an account? <Link to="/signup " className='text-decoration-none text-primary-custom' >Sign up</Link>
       </p>
+
+      <p className="text-center mt-5 fs-5 text-center" style={{color:"grey"}}>
+        <Link to="/ " className='text-decoration-none text-primary-custom' >Go to Home</Link>
+      </p>
+
       </form>
       
     </div>
