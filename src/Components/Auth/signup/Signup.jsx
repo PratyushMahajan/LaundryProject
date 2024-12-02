@@ -142,7 +142,7 @@ function SignupForm() {
              
               
 
-               <div className="form-group ">
+               <div className="form-group " >
                   <input 
                     type="text"
                     id="firstName"
@@ -227,16 +227,17 @@ function SignupForm() {
 
                   />
                    {password && password.length < 6 && (
-                  <div className="form-text text-danger mb-1">
+                  <div className="form-text text-danger mb-1 p-3">
                         Password must be at least 6 characters long.
                     </div>
                    )}
                 </div>
 
                 <button 
+                    
                     type="submit" 
                     disabled={!isFormValid} 
-                    className="btn btn-lg text-white rounded-4 p-3 mt-2 "  
+                    className="btn btn-primary btn-lg text-white rounded-4 p-3 mt-2 "  
                     style={{background: "#535bcd"}}>
 
                     Sign Up

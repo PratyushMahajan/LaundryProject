@@ -10,29 +10,22 @@ function LoginForm() {
   const [error, setError] = useState('');
   const [isFormValid, setIsFormValid] = useState(false);
 
-  useEffect(() => {
-    // Hide Navbar and Footer
-   //document.getElementById('navbar').style.display = 'none';
-    document.getElementById('footer').style.display = 'none';
-
+ 
     const Login = document.getElementById('Login');
+
+    useEffect(() => {
+      // Hide Navbar and Footer
+      //document.getElementById('navbar').style.display = 'none';
+      document.getElementById('footer').style.display = 'none';
   
-    /*if (specificButton) {
-    specificButton.style.display = 'none';
-  }*/ 
+      // Cleanup on unmount
+      return () => {
+        //document.getElementById('navbar').style.display = 'block';
+        document.getElementById('footer').style.display = 'block';
+      };
+    }, []);
 
-
-    // Cleanup on unmount
-    return () => {
-    /*  if (specificButton) {
-        specificButton.style.display = 'block'; // Restore the button visibility
-      }*/
-     //document.getElementById('navbar').style.display = 'block';
-      document.getElementById('footer').style.display = 'block';
-    };
     
-  }, []);
-
 
  const validateForm = () => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -79,7 +72,7 @@ function LoginForm() {
             value={email}
             onChange={handleEmailChange}
             required
-            className="rounded-3 p-4 mb-1  bg-grey"
+            className="rounded-3 p-3 mb-1  bg-grey"
           />
           <div className="form-text text-danger"> 
             {email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && 'Enter a valid email address.'}
@@ -94,19 +87,21 @@ function LoginForm() {
             value={password}
             onChange={handlePasswordChange}
             required
-            className="rounded-3 p-4 mb-4  bg-grey"
+            className="rounded-3 p-3 mb-4  bg-grey"
           />
           <div className="form-text text-danger"> 
             {password && password.length < 6 && 'Password must be at least 6 characters long.'}
           </div>
         </div>
 
-        <button type="submit"  disabled={!isFormValid}>
+        <button type="submit" 
+        className="btn btn-primary w-100 p-3"
+        disabled={!isFormValid}>
           Log In
         </button>
 
-        <p className="text-center mt-5 fs-5 text-center" style={{color:"grey"}}>
-        Don't have an account? <Link to="/signup " className='text-decoration-none text-primary-custom' >Sign up</Link>
+        <p className="text-center mt-5 fs-5 " style={{color:"grey"}}>
+        Don't have an account? <Link to="/signup " className='text-decoration-none text-primary' >Sign up</Link>
       </p>
       </form>
       
