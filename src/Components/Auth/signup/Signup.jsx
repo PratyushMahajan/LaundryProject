@@ -108,11 +108,11 @@ function SignupForm() {
           <Button className="ct-button btn btn-lg rounded-4 p-4 mb-3 w-150 " style={{ backgroundColor: '#535bcd', border:'none'}}   onClick={handleFormToggle}>
             {isFormVisible ? 'Close' : 'Sign up with email'}  {/* Button text toggles based on form visibility */}
           </Button>
-          <p className="text-center mt-5 fs-5 " style={{color:"grey"}}>
+          <p className="text-center mt-5 fs-6 " style={{color:"grey"}}>
             Already have an account?<br/> 
             <Link to="/login" className='text-decoration-none text-primary-custom' >Login Instead</Link>
           </p>
-          <p className="text-center mt-5 fs-5 " style={{color:"grey"}}>
+          <p className="text-center mt-5 fs-6 " style={{color:"grey"}}>
             <Link to="/" className='text-decoration-none text-primary-custom' >Go to Home</Link>
           </p>
         </Col>
@@ -237,12 +237,12 @@ function SignupForm() {
                     
                     type="submit" 
                     disabled={!isFormValid} 
-                    className="ct-button btn btn-primary btn-lg text-white rounded-4 p-3 mt-2 "  
+                    className="ct-button btn btn-primary text-white rounded-4 p-3 mt-2"  
                     >
 
                     Sign Up
                 </button>
-                <p className="text-center mt-5 fs-5 " style={{color:"grey"}}> 
+                <p className="text-center mt-5 fs-6 " style={{color:"grey"}}> 
                   <Link to="/login" className='text-decoration-none text-primary-custom' >Go Back</Link>
                 </p>
               </div>
