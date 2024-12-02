@@ -23,7 +23,7 @@ const NavBar1 = () => {
 
       <div className="text-white text-lg font-bold"> <div className="sm:w-[50%] sm:h-[20%]">
         <Link to={'/'}>
-        <img src={logo} alt="FreshThreads" style={{ width: "450px", height: "40px", marginTop: "20px", marginLeft:"150px" }} />
+        <img src={logo} alt="FreshThreads"   className="lg:mt-5 lg:ml-[150px] lg:w-[450px] lg:h-[40px]" />
         </Link>
       </div>
     </div>
