@@ -98,7 +98,18 @@ const Home = () => {
           </Typography>
         </Container>
       </Box>
-      <Cards />
+      <hr></hr>
+      <div>
+      <div class="flex items-center justify-center " >
+    <h1 class="text-4xl font-bold text-orange-500">OUR SERVICES</h1>
+</div>
+        
+        <div>
+        <Cards />
+
+        </div>
+      </div>
+      
     </div>
   );
 };

@@ -30,14 +30,14 @@ const NavBar1 = () => {
     <div className=" hidden lg:flex   justify-between items-center ">
         <div className="flex space-x-8 items-center ">
         
-    <Link to="/" className="py-4 px-2 font-semibold hover:text-green-500 transition duration-300"> <Button  variant="gradient" className='p-2 '> Home</Button></Link>
-    <Link to="/about" className="py-4 px-2 font-semibold hover:text-green-500 transition duration-300"> <Button variant="gradient" className='p-2'> About US</Button></Link>
-    <Link to="/ourservice" className="py-4 px-2 font-semibold hover:text-green-500 transition duration-300"> <Button variant="gradient" className='p-2'> Our Services</Button></Link>
-    <Link to="/ourclient" className="py-4 px-2 font-semibold hover:text-green-500 transition duration-300"> <Button variant="gradient" className='p-2'> Our Clients</Button></Link>
-    <Link to="/contact" className="py-4 px-2 font-semibold hover:text-green-500 transition duration-300"> <Button variant="gradient" className='p-2'> Contact Us</Button></Link>
-    <Link to="/login" className="font-semibold  hover:text-green-500 transition duration-300"> <Button variant="outlined" className='p-2'> Login</Button></Link>
+    <Link to="/" className="py-4 px-2 font-semibold hover:text-green-500 transition duration-300"> <Button  variant="outlined" className='p-2 hover:shadow-[0_4px_20px_rgba(255,255,0,0.7)] transition duration-300 '> Home</Button></Link>
+    <Link to="/about" className="py-4 px-2 font-semibold hover:text-green-500 transition duration-300"> <Button variant="outlined"className='p-2 hover:shadow-[0_4px_20px_rgba(255,255,0,0.7)] transition duration-300 '> About US</Button></Link>
+    <Link to="/ourservices" className="py-4 px-2 font-semibold hover:text-green-500 transition duration-300"> <Button variant="outlined" className='p-2 hover:shadow-[0_4px_20px_rgba(255,255,0,0.7)] transition duration-300 '> Our Services</Button></Link>
+    <Link to="/ourclient" className="py-4 px-2 font-semibold hover:text-green-500 transition duration-300"> <Button variant="outlined" className='p-2 hover:shadow-[0_4px_20px_rgba(255,255,0,0.7)] transition duration-300 '> Our Clients</Button></Link>
+    <Link to="/contact" className="py-4 px-2 font-semibold hover:text-green-500 transition duration-300"> <Button variant="outlined"  className='p-2 hover:shadow-[0_4px_20px_rgba(255,255,0,0.7)] transition duration-300 '> Contact Us</Button></Link>
+    <Link to="/login" className="font-semibold  hover:text-green-500 transition duration-300"> <Button variant="contained" color="green" className='p-2'> Login</Button></Link>
 
-<div>
+{/* <div>
 <Menu
       animate={{
         mount: { y: 0 },
@@ -50,13 +50,13 @@ const NavBar1 = () => {
       <Button variant="outlined" className='p-2 mr-5'> Signup</Button>
       </MenuHandler>
       <MenuList>
-      {/*<Link to='/admin'><MenuItem>Admin</MenuItem></Link>*/}
+      
       <Link to='/use'><MenuItem>Users</MenuItem></Link>
       <Link to='/del'><MenuItem>Delivery</MenuItem></Link>
       <Link to='/shop'><MenuItem>Shops</MenuItem></Link>
       </MenuList>
     </Menu>
-</div>
+</div> */}
     
         </div>
       </div>
@@ -86,7 +86,7 @@ const NavBar1 = () => {
         <Link to="/ourservice" className="block text-sm sm:text-2xl px-2 py-4 text-black  hover:bg-gray-300 font-bold transition duration-3000">Our Services</Link>
         <Link to="/ourclient" className="block text-sm sm:text-2xl px-2 py-4 text-black  hover:bg-gray-300 font-bold transition duration-300">Our Clients</Link>
         <Link to="/contact" className="block text-sm sm:text-2xl px-2 py-4 text-black  hover:bg-gray-300 font-bold transition duration-300">Contact Us</Link>
-        <div className="block text-sm sm:text-2xl  text-black hover:bg-gray-300 font-bold transition duration-300 ">
+        {/* <div className="block text-sm sm:text-2xl  text-black hover:bg-gray-300 font-bold transition duration-300 ">
 <Menu
       animate={{
         mount: { y: 0 },
@@ -98,13 +98,13 @@ const NavBar1 = () => {
         <Button className='w-5px h-2 mb-2'> Sign up as</Button>
       </MenuHandler>
       <MenuList>
-      {/*<Link to='/admin'><MenuItem>Admin</MenuItem></Link>*/}
+      
       <Link to='/use'><MenuItem>Users</MenuItem></Link>
       <Link to='/del'><MenuItem>Delivery</MenuItem></Link>
       <Link to='/shop'><MenuItem>Shops</MenuItem></Link>
       </MenuList>
     </Menu>
-</div>
+</div> */}
       </div>
     </nav>
   );
