@@ -1,6 +1,7 @@
 This is a project for pick up, clean, and hand deliver the clothes at your door.
 <!-- before workin on project pull the git github
 "git pull origin main"
+"npm i"
  -->
 
 <!-- common commsds first

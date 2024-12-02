@@ -13,7 +13,7 @@ import CardsThird from './CardsThird';
 const Cards = () => {
   return (
     <>
-    <div className='ml-8'>
+    <div className='ml-8 mt-12 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:bg-blue-gray-200'>
      <Card className="w-full max-w-[58rem] flex-row ">
       <CardHeader
         shadow={false}
@@ -83,13 +83,13 @@ const Cards = () => {
 
     </div>
 
-      <div className='flex justify-end mr-10'>
-        <CardsSec   className="transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"/>
+      <div className='flex justify-end mr-4 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:bg-blue-gray-200'>
+        <CardsSec/>
 
       </div>
 
-      <div className='ml-8'>
-        <CardsThird  className="transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"/>
+      <div className='ml-8 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:bg-blue-gray-200'>
+        <CardsThird />
 
       </div>
 

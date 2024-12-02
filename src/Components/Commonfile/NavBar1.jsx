@@ -1,0 +1,116 @@
+
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { FaBars, FaTimes } from 'react-icons/fa'; 
+import {
+    Menu,
+    MenuHandler,
+    MenuList,
+    MenuItem,
+    Button,
+    ButtonGroup
+  } from "@material-tailwind/react";
+
+
+const NavBar1 = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <nav className="bg-white shadow-lg">
+     
+        <div className="flex justify-between  ">
+        
+
+
+        <div className="text-white text-lg font-bold"> <div className="sm:w-[50%] sm:h-[20%]">
+      <Link to={'/'}>
+        <img src="https://t4.ftcdn.net/jpg/04/27/21/69/360_F_427216979_4arPHw2nV0S0d0ZW1eGjL2nWHzXyOedJ.jpg" alt="Logo" className='h-12' />
+        {/* <img src="https://t4.ftcdn.net/jpg/04/27/21/69/360_F_427216979_4arPHw2nV0S0d0ZW1eGjL2nWHzXyOedJ.jpg" alt="Logo" /> */}
+      </Link>
+    </div></div>
+    <div className=" hidden lg:flex   justify-between items-center ">
+        <div className="flex space-x-8 items-center ">
+        
+        <Link to="/" className="py-4 px-2 font-semibold hover:text-green-500 transition duration-300"> <Button  variant="gradient  " className='p-2 '> Home</Button></Link>
+    <Link to="/about" className="py-4 px-2 font-semibold hover:text-green-500 transition duration-300"> <Button variant="gradient" className='p-2'> About US</Button></Link>
+    <Link to="/ourservice" className="py-4 px-2 font-semibold hover:text-green-500 transition duration-300"> <Button variant="gradient" className='p-2'> Our Services</Button></Link>
+    <Link to="/ourclient" className="py-4 px-2 font-semibold hover:text-green-500 transition duration-300"> <Button variant="gradient" className='p-2'> Our Clients</Button></Link>
+    <Link to="/contact" className="py-4 px-2 font-semibold hover:text-green-500 transition duration-300"> <Button variant="gradient" className='p-2'> Contact Us</Button></Link>
+    <Link to="/login" className="font-semibold  hover:text-green-500 transition duration-300"> <Button variant="outlined" className='p-2'> Login</Button></Link>
+
+<div>
+<Menu
+      animate={{
+        mount: { y: 0 },
+        unmount: { y: 25 },
+      }}
+    >        
+      <MenuHandler>
+      
+
+        <Button variant="outlined" className='p-2 mr-5'> Signup</Button>
+      </MenuHandler>
+      <MenuList>
+      <Link to='/admin'><MenuItem>Admin</MenuItem></Link>
+      <Link to='/use'><MenuItem>Users</MenuItem></Link>
+      <Link to='/del'><MenuItem>Deleivery</MenuItem></Link>
+      <Link to='/shop'><MenuItem>Shops</MenuItem></Link>
+      </MenuList>
+    </Menu>
+</div>
+    
+        </div>
+      </div>
+
+
+
+
+
+
+          {/* Mobile menu button */}
+          <div className=" flex    lg:hidden sm:p-8   items-center">
+        <button onClick={() => setIsOpen(!isOpen)} className="p-2 bg-gray-100">
+          {/* {console.log(setIsOpen(!open))} */}
+          {isOpen ? (                 
+            <FaTimes className="w-5 h-5   text-gray-500 hover:text-green-500" />
+          ) : (
+            <FaBars className="w-10 h-10   text-gray-500 hover:text-green-500" />
+          )}
+        </button>
+      </div>
+        </div>
+      {/* </div> */}
+      {/* Mobile Menu */}
+      <div className={`${isOpen ? 'block' : 'hidden'} lg:hidden  `}>
+        <Link to="/" className="block text-sm sm:text-2xl px-2 py-4 text-black   hover:bg-gray-300 font-bold transition duration-300">Home</Link>
+        <Link to="/about" className="block text-sm sm:text-2xl px-2 py-4 text-black  hover:bg-gray-300 font-bold transition duration-300">About Us</Link>
+        <Link to="/ourservice" className="block text-sm sm:text-2xl px-2 py-4 text-black  hover:bg-gray-300 font-bold transition duration-3000">Our Services</Link>
+        <Link to="/ourclient" className="block text-sm sm:text-2xl px-2 py-4 text-black  hover:bg-gray-300 font-bold transition duration-300">Our Clients</Link>
+        <Link to="/contact" className="block text-sm sm:text-2xl px-2 py-4 text-black  hover:bg-gray-300 font-bold transition duration-300">Contact Us</Link>
+        <div className="block text-sm sm:text-2xl  text-black hover:bg-gray-300 font-bold transition duration-300 ">
+<Menu
+      animate={{
+        mount: { y: 0 },
+        unmount: { y: 25 },
+      }}
+      
+    >
+      <MenuHandler 	>
+        <Button className='w-5px h-2 mb-2'> Sign UP As</Button>
+      </MenuHandler>
+      <MenuList>
+      <Link to='/admin'><MenuItem>Admin</MenuItem></Link>
+      <Link to='/use'><MenuItem>Users</MenuItem></Link>
+      <Link to='/del'><MenuItem>Deleivery</MenuItem></Link>
+      <Link to='/shop'><MenuItem>Shops</MenuItem></Link>
+      </MenuList>
+    </Menu>
+</div>
+      </div>
+    </nav>
+  );
+};
+
+export default NavBar1;
+
+
