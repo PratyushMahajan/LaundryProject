@@ -15,7 +15,7 @@ function SignupForm() {
   const [error, setError] = useState('');
   const [isFirstNameFocused, setIsFirstNameFocused]=useState(false);
   const [isLastNameFocused, setIsLastNameFocused] = useState(false);
-  //const navigate = useNavigate();
+  
   //const [role, setRole] = useState('');
 
   useEffect(() => {
@@ -83,17 +83,17 @@ function SignupForm() {
     setError('');
     validateForm();
   };
-
+  
   const isFormValid = firstName && lastName && phoneNumber && email && password;
 
-  const scrollToForm = () => {
+  /*const scrollToForm = () => {
     if (formRef.current) {
       formRef.current.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
       });
     }
-  };
+  };*/
 
   
 
@@ -105,7 +105,7 @@ function SignupForm() {
         <Col md={6} className="text-center align-items-center">
           <h1 className =" text-center font-weight-bold mb-4" style={{color:'#1e1f21'}}>Welcome to  Laundry Service</h1>
           <p className="text-center font-weight-grey mb-4 ">Save 3 hours this week by using our services.</p>
-          <Button className="btn  btn-lg rounded-4 p-4 mb-3 w-150 " style={{ backgroundColor: '#535bcd', border:'none'}}   onClick={handleFormToggle}>
+          <Button className="ct-button btn btn-lg rounded-4 p-4 mb-3 w-150 " style={{ backgroundColor: '#535bcd', border:'none'}}   onClick={handleFormToggle}>
             {isFormVisible ? 'Close' : 'Sign up with email'}  {/* Button text toggles based on form visibility */}
           </Button>
           <p className="text-center mt-5 fs-5 " style={{color:"grey"}}>
@@ -117,8 +117,9 @@ function SignupForm() {
           </p>
         </Col>
 
-        <Col md={6} className="p=0 align-img-fluid w-150 h-150 object-fit-cover"   >
-          <img src="src\Components\Auth\image\laundryservice2.jpg" alt="Laundry" className=" align-img-fluid w-150 h-150 object-fit-cover" 
+        <Col md={6} className="p-0 position-relative "   >
+          <img src="src/Components/Auth/image/laundryservice2.jpg" alt="Laundry" className="img-fluid " 
+             style={{ objectFit: "cover", width: "150%", height: "150%", overflow:"hidden"}} 
               />
           
         </Col>
@@ -131,13 +132,9 @@ function SignupForm() {
 
         <form onSubmit={handleSubmit}>
           {error && <div className="error-message" style={{ color: 'red', marginBottom: '10px' }}>{error}</div>} {/* Displays error messages */}
-          
-         
-            
-        
-              {/* Corrected class name from "button" to "Button" and "container" to "Container" */}
-              <div className={`form-container ${isFormVisible ? 'show' : ''}`}>  {/* Conditional class for showing form */}
-                
+              
+              <div className={`ct-form-container d-flex flex-column justify-content-center align-items-center position-fixed top-0 start-0 w-100 h-100 bg-light  ${isFormVisible ? 'show' : ''}`} >  {/* Conditional class for showing form */}
+             
               <h2 className =" font-weight-bold mb-4">Let's Get Started!</h2>
 
          
@@ -154,7 +151,7 @@ function SignupForm() {
                     onChange={(e) => setFirstName(e.target.value)}
                     onFocus={() => setIsFirstNameFocused(true)}
                     required
-                    className="form-group  form-group-lg rounded-4 p-3 mb-2 border-0"
+                    className="ct-input ct-input-lg rounded-4 p-3 mb-2 border-0"
                   />
                    {isFirstNameFocused && !firstName && (
                   <div className="form-text text-danger mb-1">
@@ -173,7 +170,7 @@ function SignupForm() {
                     onChange={(e) => setLastName(e.target.value)}
                     onFocus={() => setIsLastNameFocused(true)}
                     required
-                    className="form-group  form-group-lg rounded-4 p-3 mb-2 border-0 "
+                    className="ct-input ct-input-lg rounded-4 p-3 mb-2 border-0 "
                   />
                    {isLastNameFocused && !lastName && (
                   <div className="form-text text-danger mb-1">
@@ -193,7 +190,7 @@ function SignupForm() {
                     value={phoneNumber}
                     onChange={handlePhoneNumberChange}
                     required
-                    className="form-group  form-group-lg rounded-4 p-3 mb-2 border-0"
+                    className="ct-input ct-input-lg rounded-4 p-3 mb-2 border-0"
 
                   />
 
@@ -210,7 +207,7 @@ function SignupForm() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="form-group  form-group-lg rounded-4 p-3 mb-2 border-0"
+                    className="ct-input ct-input-lg rounded-4 p-3 mb-2 border-0"
 
                   />
                   <div className="form-text text-danger mb-1">
@@ -226,7 +223,7 @@ function SignupForm() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                    className="form-group  form-group-lg  rounded-4 p-3 mb-1 border-0"
+                    className="ct-input ct-input-lg  rounded-4 p-3 mb-1 border-0"
 
                   />
                    {password && password.length < 6 && (
@@ -240,8 +237,8 @@ function SignupForm() {
                     
                     type="submit" 
                     disabled={!isFormValid} 
-                    className="btn btn-primary btn-lg text-white rounded-4 p-3 mt-2 "  
-                    style={{background: "#535bcd"}}>
+                    className="ct-button btn btn-primary btn-lg text-white rounded-4 p-3 mt-2 "  
+                    >
 
                     Sign Up
                 </button>
@@ -249,8 +246,10 @@ function SignupForm() {
                   <Link to="/login" className='text-decoration-none text-primary-custom' >Go Back</Link>
                 </p>
               </div>
-           
+          
+              
         </form>
+       
       </div>
     </Container>
   );

@@ -30,7 +30,7 @@ const NavBar1 = () => {
     <div className=" hidden lg:flex   justify-between items-center ">
         <div className="flex space-x-8 items-center ">
         
-        <Link to="/" className="py-4 px-2 font-semibold hover:text-green-500 transition duration-300"> <Button  variant="gradient  " className='p-2 '> Home</Button></Link>
+    <Link to="/" className="py-4 px-2 font-semibold hover:text-green-500 transition duration-300"> <Button  variant="gradient" className='p-2 '> Home</Button></Link>
     <Link to="/about" className="py-4 px-2 font-semibold hover:text-green-500 transition duration-300"> <Button variant="gradient" className='p-2'> About US</Button></Link>
     <Link to="/ourservice" className="py-4 px-2 font-semibold hover:text-green-500 transition duration-300"> <Button variant="gradient" className='p-2'> Our Services</Button></Link>
     <Link to="/ourclient" className="py-4 px-2 font-semibold hover:text-green-500 transition duration-300"> <Button variant="gradient" className='p-2'> Our Clients</Button></Link>

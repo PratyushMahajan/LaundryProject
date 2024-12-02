@@ -57,14 +57,14 @@ function LoginForm() {
 
   return (
     
-    <div className="container mt-1 d-flex justify-content-center align-items-center vh-100" >
+    <div className=" mt-1 d-flex justify-content-center align-items-center vh-100" >
       <form onSubmit={handleSubmit} noValidate>
         {error && <div style={{ color: 'red', marginBottom: '10px' }}>{error}</div>}
 
         <h1 className =" font-weight-bold mb-4  ">Welcome Back!</h1>
 
 
-        <div className='mb-3'>
+        <div className='mb-2'>
           <input
             type="email"
             id="email"
@@ -72,14 +72,14 @@ function LoginForm() {
             value={email}
             onChange={handleEmailChange}
             required
-            className="rounded-3 p-3 mb-1  bg-grey"
+            className="ct-input rounded-3 p-3  fs-6 bg-grey"
           />
           <div className="form-text text-danger"> 
             {email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && 'Enter a valid email address.'}
           </div>
         </div>
 
-        <div className='mb-3'>
+        <div className='mb-2'>
           <input
             type="password"
             id="password"
@@ -87,7 +87,7 @@ function LoginForm() {
             value={password}
             onChange={handlePasswordChange}
             required
-            className="rounded-3 p-3 mb-4  bg-grey"
+            className="ct-input rounded-3 p-3  fs-6 bg-grey"
           />
           <div className="form-text text-danger"> 
             {password && password.length < 6 && 'Password must be at least 6 characters long.'}
@@ -95,18 +95,18 @@ function LoginForm() {
         </div>
 
         <button type="submit" 
-        className="btn btn-primary w-100 p-3"
+        className="ct-button btn btn-primary mt-3 w-100 p-3"
         disabled={!isFormValid}>
           Log In
         </button>
       
         
 
-        <p className="text-center mt-5 fs-5 " style={{color:"grey"}}>
-        Don't have an account? <Link to="/signup " className='text-decoration-none text-primary' >Sign up</Link>
+        <p className="text-center mt-3 fs-6 " style={{color:"grey"}}>
+        Don't have an account? <Link to="/signup " className='text-decoration-none text-primary-custom' >Sign up</Link>
       </p>
 
-      <p className="text-center mt-5 fs-5 text-center" style={{color:"grey"}}>
+      <p className="text-center mt-5 fs-6 text-center" style={{color:"grey"}}>
         <Link to="/ " className='text-decoration-none text-primary-custom' >Go to Home</Link>
       </p>
 
