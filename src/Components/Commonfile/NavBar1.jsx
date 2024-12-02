@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa'; 
@@ -10,7 +9,7 @@ import {
     Button,
     ButtonGroup
   } from "@material-tailwind/react";
-
+import logo from '../../assets/logo.png';
 
 const NavBar1 = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,16 +17,16 @@ const NavBar1 = () => {
   return (
     <nav className="bg-white shadow-lg">
      
-        <div className="flex justify-between  ">
+    <div className="flex justify-between  ">
         
 
 
-        <div className="text-white text-lg font-bold"> <div className="sm:w-[50%] sm:h-[20%]">
-      <Link to={'/'}>
-        <img src="https://t4.ftcdn.net/jpg/04/27/21/69/360_F_427216979_4arPHw2nV0S0d0ZW1eGjL2nWHzXyOedJ.jpg" alt="Logo" className='h-12' />
-        {/* <img src="https://t4.ftcdn.net/jpg/04/27/21/69/360_F_427216979_4arPHw2nV0S0d0ZW1eGjL2nWHzXyOedJ.jpg" alt="Logo" /> */}
-      </Link>
-    </div></div>
+      <div className="text-white text-lg font-bold"> <div className="sm:w-[50%] sm:h-[20%]">
+        <Link to={'/'}>
+        <img src={logo} alt="FreshThreads" style={{ width: "450px", height: "40px", marginTop: "20px", marginLeft:"150px" }} />
+        </Link>
+      </div>
+    </div>
     <div className=" hidden lg:flex   justify-between items-center ">
         <div className="flex space-x-8 items-center ">
         
@@ -48,12 +47,12 @@ const NavBar1 = () => {
       <MenuHandler>
       
 
-        <Button variant="outlined" className='p-2 mr-5'> Signup</Button>
+      <Button variant="outlined" className='p-2 mr-5'> Signup</Button>
       </MenuHandler>
       <MenuList>
-      <Link to='/admin'><MenuItem>Admin</MenuItem></Link>
+      {/*<Link to='/admin'><MenuItem>Admin</MenuItem></Link>*/}
       <Link to='/use'><MenuItem>Users</MenuItem></Link>
-      <Link to='/del'><MenuItem>Deleivery</MenuItem></Link>
+      <Link to='/del'><MenuItem>Delivery</MenuItem></Link>
       <Link to='/shop'><MenuItem>Shops</MenuItem></Link>
       </MenuList>
     </Menu>
@@ -96,12 +95,12 @@ const NavBar1 = () => {
       
     >
       <MenuHandler 	>
-        <Button className='w-5px h-2 mb-2'> Sign UP As</Button>
+        <Button className='w-5px h-2 mb-2'> Sign up as</Button>
       </MenuHandler>
       <MenuList>
-      <Link to='/admin'><MenuItem>Admin</MenuItem></Link>
+      {/*<Link to='/admin'><MenuItem>Admin</MenuItem></Link>*/}
       <Link to='/use'><MenuItem>Users</MenuItem></Link>
-      <Link to='/del'><MenuItem>Deleivery</MenuItem></Link>
+      <Link to='/del'><MenuItem>Delivery</MenuItem></Link>
       <Link to='/shop'><MenuItem>Shops</MenuItem></Link>
       </MenuList>
     </Menu>

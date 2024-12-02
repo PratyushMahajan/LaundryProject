@@ -2,7 +2,7 @@
 import { Button, Container, Row, Col } from 'react-bootstrap';  
 import { Link, useNavigate } from 'react-router-dom';
 //import { FaArrowLeft } from 'react-icons/fa';
-//import './style.css';
+
 
 import "../style/s.css";
 
@@ -112,6 +112,9 @@ function SignupForm() {
             Already have an account?<br/> 
             <Link to="/login" className='text-decoration-none text-primary-custom' >Login Instead</Link>
           </p>
+          <p className="text-center mt-5 fs-5 " style={{color:"grey"}}>
+            <Link to="/" className='text-decoration-none text-primary-custom' >Go to Home</Link>
+          </p>
         </Col>
 
         <Col md={6} className="p=0 align-img-fluid w-150 h-150 object-fit-cover"   >
@@ -207,7 +210,7 @@ function SignupForm() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="form-group  form-group-lg rounded-4 p-3 mb-1 border-0"
+                    className="form-group  form-group-lg rounded-4 p-3 mb-2 border-0"
 
                   />
                   <div className="form-text text-danger mb-1">
@@ -242,6 +245,9 @@ function SignupForm() {
 
                     Sign Up
                 </button>
+                <p className="text-center mt-5 fs-5 " style={{color:"grey"}}> 
+                  <Link to="/login" className='text-decoration-none text-primary-custom' >Go Back</Link>
+                </p>
               </div>
            
         </form>
