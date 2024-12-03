@@ -73,7 +73,7 @@ const Footer = () => {
           <a href="www.linkedin.com/in/prakash-choure-3087b71b2" className="my-3 block">Wishlist</a>
           <a href="https://github.com/PrakashChoure2002" className="my-3 block">Lookbook</a> */}
         </div> 
-        <div className="text-capitalize flex flex-col text-white text-center py-6 w-full md:w-[15%] h-[100%]">
+        <div className="flex flex-col text-white text-center py-6 w-full md:w-[15%] h-[100%]">
           <h1 className='font-bold text-lg'>CONTACT US</h1>
           <a href="https://maps.app.goo.gl/kYSZfpQgqBUz9yAG8" target='_blank' className="my-3 block  text-white text-decoration-none"><IoLocationOutline className='inline-block  text-white' />   10th Floor, IT Tower, Bengaluru,  India</a>
           <a href="tel:+1234567890" target='_blank' className="my-3 block  text-white text-decoration-none"><IoCall className='inline-block  text-white text-decoration-none' /> +12345-67890</a>

@@ -10,12 +10,12 @@ import {
 
 const CardsSec = () => {
   return (
-    <div>
-      <Card className="w-full max-w-[58rem] flex-row m-4">
+    <div className=' p-2 transition duration-300 ease-in-out transform hover:scale-90 hover:shadow-lg hover:bg-blue-gray-200 ' >
+      <Card className="  w-full max-w-[58rem] flex sm:flex-col  sm:items-center">
       <CardHeader
         shadow={false}
         floated={false}
-        className="m-0 w-2/5 shrink-0 rounded-r-none"
+        className=" sm:w-full sm:rounded-b-none sm:mb-4"
       >
         <img
           src="https://img.freepik.com/premium-photo/young-man-working-drycleaning-salon_392895-222629.jpg?semt=ais_hybrid"
