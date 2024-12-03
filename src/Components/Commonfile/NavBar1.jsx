@@ -47,7 +47,7 @@ const NavBar1 = () => {
       <MenuHandler>
       
 
-      <Button variant="outlined" className='p-2 mr-5'> Signup</Button>
+      <Button variant="outlined" className='p-2 ml-4'> Signup</Button>
       </MenuHandler>
       <MenuList>
       {/*<Link to='/admin'><MenuItem>Admin</MenuItem></Link>*/}

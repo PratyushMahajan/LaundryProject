@@ -30,9 +30,9 @@ function App() {
         <Route path="/signup" element={<SignupForm />} />
         <Route path="/partner" element={<Partner />} />
       </Routes>
-      <div id="footer">
+  
         <Footer />
-      </div>
+  
     </>
   );
 }

@@ -17,6 +17,7 @@ const OrderDetails = ({ orders }) => {
 
   return (
     <div className="mb-4">
+      {/* payal */}
       <h5>Orders Overview</h5>
       <Table striped bordered hover responsive>
         <thead>
