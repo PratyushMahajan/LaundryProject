@@ -16,7 +16,7 @@ import NavBar1 from "./Components/Commonfile/NavBar1";
 function App() {
   //Hiding navbar at login, signup
   const location = useLocation();
-  const hideNavbarRoutes = ["/login", "/signup"];
+  const hideNavbarRoutes = ["/login", "/signup","/users","/pickup","/ShopOwner"];
 
   return (
     <>

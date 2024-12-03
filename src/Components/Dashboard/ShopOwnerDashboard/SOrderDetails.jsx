@@ -1,50 +1,82 @@
 import React from "react";
-import { Table, Badge } from "react-bootstrap";
 
-const OrderDetails = ({ orders }) => {
-  const getStatusBadge = (status) => {
-    switch (status.toLowerCase()) {
-      case "ready":
-        return <Badge bg="success">Ready</Badge>;
-      case "preparing":
-        return <Badge bg="primary">Preparing</Badge>;
-      case "not started":
-        return <Badge bg="danger">Not Started</Badge>;
-      default:
-        return <Badge bg="secondary">Unknown</Badge>;
-    }
+const OrderDetails = ({ orders, updateOrderStatus, updateOrderPayment }) => {
+  const handleStatusChange = (id, event) => {
+    updateOrderStatus(id, event.target.value);
+  };
+  const handlePaymentChange = (id,event) =>{
+    updateOrderPayment(id, event.target.value);
   };
 
   return (
-    <div className="mb-4">
-      {/* payal */}
-      <h5>Orders Overview</h5>
-      <Table striped bordered hover responsive>
+    <div>
+      <h4>Orders Overview</h4>
+      <table className="table table-bordered">
         <thead>
           <tr>
             <th>#</th>
             <th>User</th>
             <th>Status</th>
             <th>Payment</th>
+            <th>Action</th>
+            <th>Payment Changes</th>
           </tr>
         </thead>
         <tbody>
-          {orders.map((order, index) => (
+          {orders.map((order) => (
             <tr key={order.id}>
-              <td>{index + 1}</td>
+              <td>{order.id}</td>
               <td>{order.user}</td>
-              <td>{getStatusBadge(order.status)}</td>
               <td>
-                <Badge bg={order.payment === "Paid" ? "success" : "warning"}>
+                <span
+                  className={`badge ${
+                    order.status === "Ready"
+                      ? "bg-success"
+                      : order.status === "Cleaning"
+                      ? "bg-primary"
+                      : "bg-danger"
+                  }`}
+                >
+                  {order.status}
+                </span>
+              </td>
+              <td>
+                <span
+                  className={`badge ${
+                    order.payment === "paid" ? "bg-success" : "bg-warning"
+                  }`}
+                >
                   {order.payment}
-                </Badge>
+                </span>
+              </td>
+              <td>
+                <select
+                  className="form-select form-select-sm"
+                  value={order.status}
+                  onChange={(event) => handleStatusChange(order.id, event)}
+                >
+                  <option value="Not Started">Not Started</option>
+                  <option value="Cleaning">Cleaning</option>
+                  <option value="Ready">Ready</option>
+                </select>
+              </td>
+              <td>
+                <select
+                  className="form-select form-select-sm"
+                  value={order.payment}
+                  onChange={(event) => handlePaymentChange(order.id, event)}
+                >
+                  <option value="paid">Paid</option>
+                  <option value="pending">Pending</option>
+                </select>
               </td>
             </tr>
           ))}
         </tbody>
-      </Table>
+      </table>
     </div>
   );
 };
 
 export default OrderDetails;
+
