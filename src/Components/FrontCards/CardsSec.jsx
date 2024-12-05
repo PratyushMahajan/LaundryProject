@@ -23,38 +23,38 @@ const CardsSec = () => {
           className="h-full w-full object-cover"
         />
       </CardHeader>
-      <CardBody>
+      <CardBody className="sm:w-full sm:text-center" >
         {/*<Typography variant="h6" color="gray" className="mb-4 uppercase">
           startups
         </Typography>*/}
-        <Typography variant="h2" color="blue-gray" className="mb-8">
+        <Typography variant="h2" color="blue-gray" className="mb-8" style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '700' }}>
       
         DRY CLEANING
         </Typography>
         <Typography variant="h4" color="blue-gray" className="mb-6 flex items-center space-x-2">
   <AiFillSchedule />
-  <span>Your clothes tracked    </span>
+  <span style={{ fontFamily: 'Poppins, sans-serif' }}>Your clothes tracked    </span>
 </Typography>
-        <Typography color="gray" className="mb-8 font-normal">
+        <Typography color="gray" className="mb-8 font-normal" style={{ fontFamily: 'Poppins, sans-serif'}}>
         You can schedule a pickup any day of the week. We’ll email you a photo and itemized inventory of everything being cleaned.
 
 </Typography>
         {/* second */}
-        <Typography variant="h4" color="blue-gray" className="mb-6 flex items-center space-x-2">
+        <Typography variant="h4" color="blue-gray" className="mb-6 flex items-center space-x-2" style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '700' }}>
   <AiFillSchedule />
-  <span>Expert cleaning and stain removal
+  <span >Expert cleaning and stain removal
   </span>
 </Typography>
-        <Typography color="gray" className="mb-8 font-normal">
-        We carefully follow the care label and inspect your clothes for stains to ensure they receive the optimal treatment.        </Typography>
+        <Typography color="gray" className="mb-8 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>
+        We carefully follow the care label and inspect your clothes for stains,<br></br> we ensure they receive the optimal treatment.        </Typography>
         {/* thireds */}
-        <Typography variant="h4" color="blue-gray" className="mb-6 flex items-center space-x-2">
+        <Typography variant="h4" color="blue-gray" className="mb-6 flex items-center space-x-2" style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '700' }}>
   <AiFillSchedule />
   <span>Pressed and returned on hangers
   </span>
 </Typography>
-        <Typography color="gray" className="mb-8 font-normal">
-        Your clothes are delivered to your door, crisply folded and your socks paired, ready to be worn or put into drawers.        </Typography> 
+        <Typography color="gray" className="mb-8 font-normal" style={{ fontFamily: 'Poppins, sans-serif'}}>
+        Your clothes are delivered to your door, crisply folded and your socks paired, <br></br>ready to be worn or put into drawers.        </Typography> 
 
 
         {/* <a href="#" className="inline-block">

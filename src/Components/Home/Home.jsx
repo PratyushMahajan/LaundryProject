@@ -1,6 +1,8 @@
 import React, { useState } from 'react'; 
-import { Box, Select, MenuItem, Typography, Container } from '@mui/material';
+import { Box, Select, MenuItem, Typography, Container, Button } from '@mui/material';
 import Cards from "../FrontCards/Cards";
+import Flatpickr from 'react-flatpickr';
+import 'flatpickr/dist/themes/confetti.css';
 
 const Home = () => {
   const [selectedCity, setSelectedCity] = useState(''); 
@@ -8,6 +10,7 @@ const Home = () => {
   const handleChange = (event) => {
     setSelectedCity(event.target.value); 
   };
+  const [date, setDate] = useState(null);
 
   return (
     <div>
@@ -91,22 +94,62 @@ const Home = () => {
 
             </Select>
 
+            <Flatpickr
+              value={date}
+              onChange={(selectedDates) => setDate(selectedDates[0])}
+              placeholder='Pickup Date'
+              options={{
+                dateFormat: 'Y-m-d',
+                allowInput: false,
+              }}
+              style={{ 
+                backgroundColor: '#fff',
+                fontWeight: 700,
+                fontFamily: 'Poppins, sans-serif',
+                color: date ? 'black' : 'gray', 
+                padding: '10px',
+                fontSize: '16px',
+                width: '200px',
+                border: '1px solid #ccc',
+                borderRadius: '4px',
+                textAlign: 'center',
+               }}
+            />
+            
+
+          <Button
+            variant="outlined"
+            sx={{
+              backgroundColor: '#EF951A',
+              color: 'white',
+              fontFamily: 'Poppins, sans-serif',
+              fontSize: '16px',
+              fontWeight: 700,
+              border: '2px solid white',
+              borderRadius: '50px',
+              padding: '10px 20px',
+              textTransform: 'none',
+              '&:hover': {
+                backgroundColor: '#D47F18', 
+                borderColor: 'white',
+              },
+            }}
+          >
+            Explore Laundries
+          </Button>
+
           </Box>
          
-          <Typography sx={{ mt: 2, color: 'white', fontFamily: 'Poppins, sans-serif' }}>
-            
-          </Typography>
         </Container>
       </Box>
-      <hr></hr>
+      
       <div>
-      <div class="flex items-center justify-center " >
-    <h1 class="text-4xl font-bold text-orange-500">OUR SERVICES</h1>
-</div>
+        <div class="flex items-center justify-center " >
+          <h1 class="text-5xl font-bold text-orange-500 mt-10" style={{ fontFamily: 'Poppins, sans-serif'}}>OUR SERVICES</h1>
+        </div>
         
         <div>
-        <Cards />
-
+          <Cards />
         </div>
       </div>
       

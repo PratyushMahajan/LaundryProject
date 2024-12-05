@@ -247,7 +247,7 @@ function SignupForm() {
                 </p>
               </div>
           
-              
+              `
         </form>
        
       </div>
