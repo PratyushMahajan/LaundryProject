@@ -86,7 +86,10 @@ const NavBar1 = () => {
         <Link to="/ourservice" className="block text-sm sm:text-2xl px-2 py-4 text-black  hover:bg-gray-300 font-bold transition duration-3000">Our Services</Link>
         <Link to="/ourclient" className="block text-sm sm:text-2xl px-2 py-4 text-black  hover:bg-gray-300 font-bold transition duration-300">Our Clients</Link>
         <Link to="/contact" className="block text-sm sm:text-2xl px-2 py-4 text-black  hover:bg-gray-300 font-bold transition duration-300">Contact Us</Link>
+        <Link to="/login" className="font-semibold  hover:text-green-500 transition duration-300"> <Button variant="contained" color="green" className='p-2'> Login</Button></Link>
+          
         {/* <div className="block text-sm sm:text-2xl  text-black hover:bg-gray-300 font-bold transition duration-300 ">
+        
 <Menu
       animate={{
         mount: { y: 0 },

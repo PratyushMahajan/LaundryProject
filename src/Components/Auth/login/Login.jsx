@@ -13,17 +13,17 @@ function LoginForm() {
  
     const Login = document.getElementById('Login');
 
-    useEffect(() => {
-      // Hide Navbar and Footer
-      //document.getElementById('navbar').style.display = 'none';
-      document.getElementById('footer').style.display = 'none';
+    // useEffect(() => {
+    //   // Hide Navbar and Footer
+    //   //document.getElementById('navbar').style.display = 'none';
+    //   document.getElementById('footer').style.display = 'none';
   
-      // Cleanup on unmount
-      return () => {
-        //document.getElementById('navbar').style.display = 'block';
-        document.getElementById('footer').style.display = 'block';
-      };
-    }, []);
+    //   // Cleanup on unmount
+    //   return () => {
+    //     //document.getElementById('navbar').style.display = 'block';
+    //     document.getElementById('footer').style.display = 'block';
+    //   };
+    // }, []);
 
     
 
@@ -106,7 +106,7 @@ function LoginForm() {
         Don't have an account? <Link to="/signup " className='text-decoration-none text-primary-custom' >Sign up</Link>
       </p>
 
-      <p className="text-center mt-5 fs-6 text-center" style={{color:"grey"}}>
+      <p className="text-center mt-5 fs-6 " style={{color:"grey"}}>
         <Link to="/ " className='text-decoration-none text-primary-custom' >Go to Home</Link>
       </p>
 
