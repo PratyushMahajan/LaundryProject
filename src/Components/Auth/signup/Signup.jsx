@@ -1,9 +1,6 @@
- import React, { useState, useRef, useEffect } from 'react';
-import { Button, Container, Row, Col } from 'react-bootstrap';  
-import { Link, useNavigate } from 'react-router-dom';
-//import { FaArrowLeft } from 'react-icons/fa';
-
-
+import React, { useState } from 'react';
+import { Container, Row, Col, Button, Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import "../style/s.css";
 
 function SignupForm() {
@@ -13,41 +10,26 @@ function SignupForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [isFirstNameFocused, setIsFirstNameFocused]=useState(false);
-  const [isLastNameFocused, setIsLastNameFocused] = useState(false);
+  const [selectedOption, setSelectedOption] = useState('');
   
-  //const [role, setRole] = useState('');
+  // Track focus state for each field
+  const [isFirstNameFocused, setIsFirstNameFocused] = useState(false);
+  const [isLastNameFocused, setIsLastNameFocused] = useState(false);
+  const [isPhoneNumberFocused, setIsPhoneNumberFocused] = useState(false);
+  const [isEmailFocused, setIsEmailFocused] = useState(false);
+  const [isPasswordFocused, setIsPasswordFocused] = useState(false);
+  
+  const [isFormVisible, setFormVisible] = useState(false);
 
-  useEffect(() => {
-    // Hide Navbar and Footer
-    //document.getElementById('navbar').style.display = 'none';
-    document.getElementById('footer').style.display = 'none';
-
-    // Cleanup on unmount
-    return () => {
-      //document.getElementById('navbar').style.display = 'block';
-      document.getElementById('footer').style.display = 'block';
-    };
-  }, []);
-
-  const formRef = useRef(null);
-
-  /*const goBack = () => {
-    navigate(-1)
-  }*/
-
-  const [isFormVisible, setFormVisible] = useState(false);  // React hook to manage form visibility
- 
-
-  const handleFormToggle = () => {  // Function to toggle form visibility
-    setFormVisible(!isFormVisible);  // Toggle between true and false to show/hide form
+  const handleFormToggle = () => {
+    setFormVisible(!isFormVisible);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Form submitted"); 
 
-    if (!firstName || !lastName || !phoneNumber || !email || !password) {
+    // Basic validation
+    if (!selectedOption || !firstName || !lastName || !phoneNumber || !email || !password) {
       setError('All fields are required.');
       return;
     }
@@ -68,188 +50,173 @@ function SignupForm() {
       return;
     }
 
-    setError('');
+    setError(''); // Clear error if no validation errors
     console.log('Form submitted:', { firstName, lastName, phoneNumber, email, password });
   };
 
   const handlePhoneNumberChange = (e) => {
-    const value = e.target.value.replace(/[^0-9]/g, '');  
+    const value = e.target.value.replace(/[^0-9]/g, '');
     setPhoneNumber(value);
-    validateForm();
   };
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-    setError('');
-    validateForm();
-  };
-  
-  const isFormValid = firstName && lastName && phoneNumber && email && password;
-
-  /*const scrollToForm = () => {
-    if (formRef.current) {
-      formRef.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    }
-  };*/
-
-  
+  const isFormValid = firstName && lastName && phoneNumber && email && password &&
+    /^\d{10}$/.test(phoneNumber) && /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/.test(email) && password.length >= 6;
 
   return (
-    
-    <Container fluid style={{ minHeight: '100vh' }}>
+    <Container fluid>
       <Row className="align-items-center d-flex" style={{ minHeight: '100vh' }}>
-     
         <Col md={6} className="text-center align-items-center">
-          <h1 className =" text-center font-weight-bold mb-4" style={{color:'#1e1f21'}}>Welcome to  Laundry Service</h1>
-          <p className="text-center font-weight-grey mb-4 ">Save 3 hours this week by using our services.</p>
-          <Button className="ct-button btn btn-lg rounded-4 p-4 mb-3 w-150 " style={{ backgroundColor: '#535bcd', border:'none'}}   onClick={handleFormToggle}>
-            {isFormVisible ? 'Close' : 'Sign up with email'}  {/* Button text toggles based on form visibility */}
+          <h1 className="text-center font-weight-bold mb-4" style={{ color: '#1e1f21' }}>Welcome to Laundry Service</h1>
+          <p className="text-center font-weight-grey mb-4">Save 3 hours this week by using our services.</p>
+          <Button
+            className="btn btn-primary btn-lg rounded-4 p-4 mb-3 w-75"
+            style={{ backgroundColor: '#535bcd', border: 'none', maxWidth: '425px' }}
+            onClick={handleFormToggle}
+          >
+            {isFormVisible ? 'Close' : 'Sign up with email'}
           </Button>
-          <p className="text-center mt-5 fs-6 " style={{color:"grey"}}>
-            Already have an account?<br/> 
-            <Link to="/login" className='text-decoration-none text-primary-custom' >Login Instead</Link>
+          <p className="text-center mt-5 fs-5" style={{ color: "grey" }}>
+            Already have an account?<br />
+            <Link to="/login" className='text-decoration-none text-primary-custom'>Login Instead</Link>
           </p>
-          <p className="text-center mt-5 fs-6 " style={{color:"grey"}}>
-            <Link to="/" className='text-decoration-none text-primary-custom' >Go to Home</Link>
+          <p className="text-center mt-5 fs-6" style={{ color: "grey" }}>
+            <Link to="/" className='text-decoration-none text-primary-custom'>Go to Home</Link>
           </p>
         </Col>
 
-        <Col md={6} className="p-0 position-relative "   >
-          <img src="src/Components/Auth/image/laundryservice2.jpg" alt="Laundry" className="img-fluid " 
-             style={{ objectFit: "cover", width: "150%", height: "150%", overflow:"hidden"}} 
-              />
-          
+        <Col md={6} className="p-0 position-relative">
+          <img
+            src="src/Components/Auth/image/laundryservice2.jpg"
+            alt="Laundry"
+            className="img-fluid"
+            style={{ objectFit: "cover", width: "100%", height: "100%" }}
+          />
         </Col>
       </Row>
 
-      <div ref={formRef} className="signup-form">
+      <div className="container-fluid my-5 d-flex justify-content-center align-items-center vh-100">
+        <div className="signup-form">
+          <form onSubmit={handleSubmit}>
+            {error && <div className="error-message" style={{ color: 'red', marginBottom: '10px' }}>{error}</div>}
 
-     
-        
-
-        <form onSubmit={handleSubmit}>
-          {error && <div className="error-message" style={{ color: 'red', marginBottom: '10px' }}>{error}</div>} {/* Displays error messages */}
+            <div className={`ct-form-container d-flex flex-column justify-content-center align-items-center position-fixed top-0 start-0 w-100 h-100 bg-light ${isFormVisible ? 'show' : ''}`}>
               
-              <div className={`ct-form-container d-flex flex-column justify-content-center align-items-center position-fixed top-0 start-0 w-100 h-100 bg-light  ${isFormVisible ? 'show' : ''}`} >  {/* Conditional class for showing form */}
-             
-              <h2 className =" font-weight-bold mb-4">Let's Get Started!</h2>
+              <div className="container-fluid d-flex justify-content-center align-items-center">
+                <Row className="justify-content-center align-items-center vh-100">
+                  <Col className="p-4">
 
-         
-            
-             
-              
-
-               <div className="form-group " >
-                  <input 
-                    type="text"
-                    id="firstName"
-                    placeholder="First name"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    onFocus={() => setIsFirstNameFocused(true)}
-                    required
-                    className="ct-input ct-input-lg rounded-4 p-3 mb-2 border-0"
-                  />
-                   {isFirstNameFocused && !firstName && (
-                  <div className="form-text text-danger mb-1">
-                    Please Enter your First name
-                </div>
-              )}
-
-                </div>
-
-                <div className="form-group">
-                  <input
-                    type="text"
-                    id="lastName"
-                    placeholder="Last name"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                    onFocus={() => setIsLastNameFocused(true)}
-                    required
-                    className="ct-input ct-input-lg rounded-4 p-3 mb-2 border-0 "
-                  />
-                   {isLastNameFocused && !lastName && (
-                  <div className="form-text text-danger mb-1">
-                  Please Enter your last name
-
-                </div>
-                  )}
-                </div>
-
-
-
-                <div className="form-group">
-                  <input
-                    type="tel"
-                    id="phoneNumber"
-                    placeholder="Phone Number"
-                    value={phoneNumber}
-                    onChange={handlePhoneNumberChange}
-                    required
-                    className="ct-input ct-input-lg rounded-4 p-3 mb-2 border-0"
-
-                  />
-
-                <div className="form-text text-danger mb-1">
-                  {phoneNumber && !/^\d{10}$/.test(phoneNumber) && 'Phone number must be 10 digits.'}
-                </div>
-                </div>
-
-                <div className="form-group">
-                  <input
-                    type="email"
-                    id="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="ct-input ct-input-lg rounded-4 p-3 mb-2 border-0"
-
-                  />
-                  <div className="form-text text-danger mb-1">
-                    {email && !/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/.test(email) && 'Please enter a valid email address.'}
-                </div>
-                </div>
-
-                <div className="form-group">
-                  <input
-                    type="password"
-                    id="password"
-                    placeholder="Create Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                    className="ct-input ct-input-lg  rounded-4 p-3 mb-1 border-0"
-
-                  />
-                   {password && password.length < 6 && (
-                  <div className="form-text text-danger mb-1 p-3">
-                        Password must be at least 6 characters long.
+                  <h2 className="font-weight-bold mb-4">Let's Get Started!</h2>
+                  
+                    <div className="mb-2 w-100 ">
+                      <select
+                        aria-label="Select an option"
+                        value={selectedOption}
+                        onChange={(e) => setSelectedOption(e.target.value)}
+                        required
+                        className=" responsive-input justify-content-center align-items-center fs-5 p-3 w-100"
+                        style={{maxWidth:'400px'}}
+                      >
+                        <option value="">Register As</option>
+                        <option value="option1">User</option>
+                        <option value="option2">Shop-Owner</option>
+                        <option value="option3">Delivery-Partner</option>
+                      </select>
                     </div>
-                   )}
-                </div>
+                    {error && <div className="text-danger">{error}</div>}
 
-                <button 
-                    
-                    type="submit" 
-                    disabled={!isFormValid} 
-                    className="ct-button btn btn-primary text-white rounded-4 p-3 mt-2"  
+                    <div className="mb-2">
+                      <input
+                        type="text"
+                        id="firstName"
+                        placeholder="First name"
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}
+                        onFocus={() => setIsFirstNameFocused(true)}
+                        onBlur={() => setIsFirstNameFocused(false)}
+                        required
+                        className="rounded-4 p-3 mb-1 border-0 responsive-input"
+                      />
+                      {isFirstNameFocused && !firstName && <div className="form-text text-danger mb-1">Please Enter your First name</div>}
+                    </div>
+
+                    <div className="mb-2">
+                      <input
+                        type="text"
+                        id="lastName"
+                        placeholder="Last name"
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
+                        onFocus={() => setIsLastNameFocused(true)}
+                        onBlur={() => setIsLastNameFocused(false)}
+                        required
+                        className=" rounded-4 p-3 mb-1 border-0 responsive-input w-100"
+                        style={{maxWidth:'18rem'}}
+                      />
+                      {isLastNameFocused && !lastName && <div className="form-text text-danger mb-1">Please Enter your Last name</div>}
+                    </div>
+
+                    <div className="mb-2">
+                      <input
+                        type="tel"
+                        id="phoneNumber"
+                        placeholder="Phone Number"
+                        value={phoneNumber}
+                        onChange={handlePhoneNumberChange}
+                        onFocus={() => setIsPhoneNumberFocused(true)}
+                        onBlur={() => setIsPhoneNumberFocused(false)}
+                        required
+                        className="rounded-4 p-3 mb-1 border-0 responsive-input"
+                      />
+                      {isPhoneNumberFocused && !/^\d{10}$/.test(phoneNumber) && <div className="form-text text-danger mb-1">Phone number must be 10 digits.</div>}
+                    </div>
+
+                    <div className="mb-2">
+                      <input
+                        type="email"
+                        id="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        onFocus={() => setIsEmailFocused(true)}
+                        onBlur={() => setIsEmailFocused(false)}
+                        required
+                        className="rounded-4 p-3 mb-1 border-0 responsive-input"
+                      />
+                      {isEmailFocused && !/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/.test(email) && <div className="form-text text-danger mb-1">Please enter a valid email address.</div>}
+                    </div>
+
+                    <div className="mb-2">
+                      <input
+                        type="password"
+                        id="password"
+                        placeholder="Create Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        onFocus={() => setIsPasswordFocused(true)}
+                        onBlur={() => setIsPasswordFocused(false)}
+                        required
+                        className="rounded-4 p-3 mb-1 border-0 responsive-input"
+                      />
+                      {isPasswordFocused && password.length < 6 && <div className="form-text text-danger mb-1">Password must be at least 6 characters long.</div>}
+                    </div>
+
+                    <Button
+                      type="submit"
+                      disabled={!isFormValid}
+                      className="ct-button btn btn-primary btn-lg rounded-4 p-4 mb-3 w-100"
+                      style={{ backgroundColor: '#535bcd', border: 'none', maxWidth: '400px' }}
                     >
-
-                    Sign Up
-                </button>
-                <p className="text-center mt-5 fs-6 " style={{color:"grey"}}> 
-                  <Link to="/login" className='text-decoration-none text-primary-custom' >Go Back</Link>
-                </p>
+                      Sign Up
+                    </Button>
+                    <p className="text-center mt-5 fs-5" style={{ color: "grey" }}>
+                      <Link to="/" className='text-decoration-none text-primary-custom'>Go to Home</Link>
+                    </p>
+                  </Col>
+                </Row>
               </div>
-          
-              `
-        </form>
-       
+            </div>
+          </form>
+        </div>
       </div>
     </Container>
   );

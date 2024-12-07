@@ -9,6 +9,7 @@ import Pickup from "./Components/Dashboard/Pickup";
 import Footer from "./Components/Commonfile/Footer";
 import Partner from "./Components/Partner/Partner";
 import ShopOwner from "./Components/Dashboard/ShopOwner";
+import ProfileSlider from "./Components/Auth/contacts/contact";
 
 import '@fontsource/poppins';
 import NavBar1 from "./Components/Commonfile/NavBar1";
@@ -29,6 +30,7 @@ function App() {
         <Route path="/login" element={<LoginForm />} />
         <Route path="/signup" element={<SignupForm />} />
         <Route path="/partner" element={<Partner />} />
+        <Route path="/contact" element={<ProfileSlider/>} />
       </Routes>
   
         < Footer/>

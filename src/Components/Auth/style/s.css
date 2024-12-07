@@ -1,5 +1,11 @@
 /* Full-Screen Form Container */
 .ct-form-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  height: 100vh;          
+  width: 100vw;           
+
   transform: translateY(+100%); /* Initially hidden above the screen */
   opacity: 0; /* Hidden initially */
   transition: transform 0.6s ease, opacity 0.6s ease; /* Smooth slide-in */
@@ -17,22 +23,25 @@
   width: 100%;
   max-width: 600px;
 }
-
-/* Input Field Styles */
-.ct-input {
-  width: 425px;
+.responsive-input {
+  width: 100%; 
+  max-width: '425px'; 
+  
+  padding: 12px; 
+   border-radius: 8px;
+   border:none;
   background-color: rgb(239, 239, 239);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.ct-input:focus {
+ 
+
+.responsive-input:focus {
   box-shadow: 0 0 5px rgba(187, 186, 185, 0.5);
 }
 
-/* Button Styles */
+ 
 .ct-button {
-  width: 100%;
-  max-width: 425px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
