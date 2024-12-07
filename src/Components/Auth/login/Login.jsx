@@ -44,7 +44,7 @@ function LoginForm() {
           {error && <div style={{ color: 'red', marginBottom: '10px' }}>{error}</div>}
           <h1 className="font-weight-bold mb-4 text-center">Welcome Back!</h1>
 
-          <div className='mb-2'>
+          <div className='mb-3'>
             <input
               type="email"
               id="email"
@@ -59,7 +59,7 @@ function LoginForm() {
             </div>
           </div>
 
-          <div className='mb-2'>
+          <div className='mb-3'>
             <input
               type="password"
               id="password"
@@ -77,7 +77,7 @@ function LoginForm() {
           <button type="submit" 
             className="btn btn-primary btn-lg w-100" 
             disabled={!isFormValid}>
-            Log In
+            Login
           </button>
 
           <p className="text-center mt-3 fs-5" style={{ color: "grey" }}>

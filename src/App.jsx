@@ -10,6 +10,7 @@ import Footer from "./Components/Commonfile/Footer";
 import Partner from "./Components/Partner/Partner";
 import ShopOwner from "./Components/Dashboard/ShopOwner";
 import ProfileSlider from "./Components/Auth/contacts/contact";
+import LaundriesPage from "./Components/Shops/shoplist";
 
 import '@fontsource/poppins';
 import NavBar1 from "./Components/Commonfile/NavBar1";
@@ -31,6 +32,7 @@ function App() {
         <Route path="/signup" element={<SignupForm />} />
         <Route path="/partner" element={<Partner />} />
         <Route path="/contact" element={<ProfileSlider/>} />
+        <Route path="/shoplist" element={<LaundriesPage/>} />
       </Routes>
   
         < Footer/>

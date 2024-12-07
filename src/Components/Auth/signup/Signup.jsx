@@ -79,7 +79,7 @@ function SignupForm() {
             Already have an account?<br />
             <Link to="/login" className='text-decoration-none text-primary-custom'>Login Instead</Link>
           </p>
-          <p className="text-center mt-5 fs-6" style={{ color: "grey" }}>
+          <p className="text-center mt-5 fs-5" style={{ color: "grey" }}>
             <Link to="/" className='text-decoration-none text-primary-custom'>Go to Home</Link>
           </p>
         </Col>

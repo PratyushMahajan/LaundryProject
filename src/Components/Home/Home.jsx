@@ -1,16 +1,30 @@
 import React, { useState } from 'react'; 
-import { Box, Select, MenuItem, Typography, Container, Button } from '@mui/material';
+import { Box, Select, MenuItem, Typography, Container, Button, Snackbar, Alert } from '@mui/material';
 import Cards from "../FrontCards/Cards";
 import Flatpickr from 'react-flatpickr';
 import 'flatpickr/dist/themes/confetti.css';
 
 const Home = () => {
   const [selectedCity, setSelectedCity] = useState(''); 
-
-  const handleChange = (event) => {
-    setSelectedCity(event.target.value); 
-  };
   const [date, setDate] = useState(null);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
+
+  const handleExploreClick = () => {
+    if (!selectedCity) {
+      setSnackbarMessage('Please select a city before proceeding!');
+      setSnackbarOpen(true); // Show Snackbar
+    } else if (!date) {
+      setSnackbarMessage('Please select a pickup date before proceeding!');
+      setSnackbarOpen(true); // Show Snackbar
+    } else {
+      window.location.href = `/shoplist?city=${selectedCity}&date=${date.toISOString()}`;
+    }
+  };
+
+  const handleSnackbarClose = () => {
+    setSnackbarOpen(false);
+  };
 
   return (
     <div>
@@ -66,7 +80,7 @@ const Home = () => {
           <Box sx={{ display: 'flex', justifyContent: 'left', gap: 2 }}>
             <Select
               value={selectedCity}
-              onChange={handleChange}
+              onChange={(e) => setSelectedCity(e.target.value)}
               displayEmpty 
               variant="outlined"
               sx={{
@@ -82,7 +96,6 @@ const Home = () => {
                 },
               }}
             >
-
               <MenuItem value="" disabled>
                 Select your Location
               </MenuItem>
@@ -91,7 +104,6 @@ const Home = () => {
               <MenuItem value="Hyderabad">Hyderabad</MenuItem>
               <MenuItem value="Mumbai">Mumbai</MenuItem>
               <MenuItem value="Pune">Pune</MenuItem>
-
             </Select>
 
             <Flatpickr
@@ -113,46 +125,54 @@ const Home = () => {
                 border: '1px solid #ccc',
                 borderRadius: '4px',
                 textAlign: 'center',
-               }}
+              }}
             />
-            
 
-          <Button
-            variant="outlined"
-            sx={{
-              backgroundColor: '#EF951A',
-              color: 'white',
-              fontFamily: 'Poppins, sans-serif',
-              fontSize: '16px',
-              fontWeight: 700,
-              border: '2px solid white',
-              borderRadius: '50px',
-              padding: '10px 20px',
-              textTransform: 'none',
-              '&:hover': {
-                backgroundColor: '#D47F18', 
-                borderColor: 'white',
-              },
-            }}
-          >
-            Explore Laundries
-          </Button>
-
+            <Button
+              variant="outlined"
+              onClick={handleExploreClick}
+              sx={{
+                backgroundColor: '#EF951A',
+                color: 'white',
+                fontFamily: 'Poppins, sans-serif',
+                fontSize: '16px',
+                fontWeight: 700,
+                border: '2px solid white',
+                borderRadius: '50px',
+                padding: '10px 20px',
+                textTransform: 'none',
+                '&:hover': {
+                  backgroundColor: '#D47F18', 
+                  borderColor: 'white',
+                },
+              }}
+            >
+              Explore Laundries
+            </Button>
           </Box>
-         
         </Container>
       </Box>
-      
+
       <div>
-        <div class="flex items-center justify-center " >
-          <h1 class="text-5xl font-bold text-orange-500 mt-10" style={{ fontFamily: 'Poppins, sans-serif'}}>OUR SERVICES</h1>
+        <div className="flex items-center justify-center " >
+          <h1 className="text-5xl font-bold text-orange-500 mt-10" style={{ fontFamily: 'Poppins, sans-serif'}}>OUR SERVICES</h1>
         </div>
         
         <div>
           <Cards />
         </div>
       </div>
-      
+
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={3000}
+        onClose={handleSnackbarClose}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert onClose={handleSnackbarClose} severity="warning" sx={{ fontFamily: 'Poppins, sans-serif' }}>
+          {snackbarMessage}
+        </Alert>
+      </Snackbar>
     </div>
   );
 };

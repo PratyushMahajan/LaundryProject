@@ -10,7 +10,7 @@ import {
 
 const CardsSec = () => {
   return (
-    <div className=' p-2 transition duration-300 ease-in-out transform hover:scale-90 hover:shadow-lg hover:bg-blue-gray-200 ' >
+    <div className=' p-2 transition duration-300 ease-in-out transform hover:scale-90 hover:shadow-[0_4px_20px_rgba(0,0,0,0.7)]  ' >
       <Card className="  w-full max-w-[58rem] flex sm:flex-col  sm:items-center">
       <CardHeader
         shadow={false}
