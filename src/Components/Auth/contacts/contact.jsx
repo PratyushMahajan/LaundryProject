@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap
-import "../style/s.css";
+//import "../style/s.css";
 import "./contact.css";
 import { grey } from '@mui/material/colors';
 
@@ -65,18 +65,18 @@ const ProfileSlider = () => {
 
   return (
     
-    <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div className="d-flex justify-content-center align-items-center vh-100 ">
 
-      <div className="card shadow-lg rounded-3 border-none p-4 bg-light" style={{ width: '100%', maxWidth: '1400px', backgroundColor: '#c7c9c8'}}> 
+      <div className="card shadow-lg rounded-3 border-none p-4 " style={{ width: '100%', maxWidth: '1400px'}}> 
         
         <h2 className="text-center mb-4 " style={{color:'black'}}>Our Team</h2>
         <div className="row justify-content-center" style={{ backgroundColor:'#f8f9fa'}} >
-          <div className="col-12 " >
+          <div className="col-12  " >
             <Slider {...settings}>
               {profiles.map((profile, index) => (
                
-                <div key={index} className="card-img-top px-5 mb-4">
-                  <div className="card shadow-sm border-0">
+                <div key={index} className="card-img-top px-5 mb-4 ">
+                  <div className="card shadow-sm border-0 rounded-3 ">
                     <img
                       src={profile.image}
                       className="card-img-top"
