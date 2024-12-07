@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
-
 import { Link } from 'react-router-dom';
-import '../style/s.css';
 
 function LoginForm() {
   const [email, setEmail] = useState('');
@@ -10,24 +8,7 @@ function LoginForm() {
   const [error, setError] = useState('');
   const [isFormValid, setIsFormValid] = useState(false);
 
- 
-    const Login = document.getElementById('Login');
-
-    // useEffect(() => {
-    //   // Hide Navbar and Footer
-    //   //document.getElementById('navbar').style.display = 'none';
-    //   document.getElementById('footer').style.display = 'none';
-  
-    //   // Cleanup on unmount
-    //   return () => {
-    //     //document.getElementById('navbar').style.display = 'block';
-    //     document.getElementById('footer').style.display = 'block';
-    //   };
-    // }, []);
-
-    
-
- const validateForm = () => {
+  const validateForm = () => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const isEmailValid = emailPattern.test(email);
     const isPasswordValid = password.length >= 6;
@@ -53,65 +34,61 @@ function LoginForm() {
       return;
     }
     console.log('Logged in:', { email, password });
+    // Add your login logic here
   };
 
   return (
-    
-    <div className=" mt-1 d-flex justify-content-center align-items-center vh-100" >
-      <form onSubmit={handleSubmit} noValidate>
-        {error && <div style={{ color: 'red', marginBottom: '10px' }}>{error}</div>}
+    <div className="container my-5 d-flex justify-content-center align-items-center vh-100">
+      <div className="col-md-6 col-lg-4">
+        <form onSubmit={handleSubmit} noValidate>
+          {error && <div style={{ color: 'red', marginBottom: '10px' }}>{error}</div>}
+          <h1 className="font-weight-bold mb-4 text-center">Welcome Back!</h1>
 
-        <h1 className =" font-weight-bold mb-4  ">Welcome Back!</h1>
-
-
-        <div className='mb-2'>
-          <input
-            type="email"
-            id="email"
-            placeholder="Email"
-            value={email}
-            onChange={handleEmailChange}
-            required
-            className="ct-input rounded-3 p-3  fs-6 bg-grey"
-          />
-          <div className="form-text text-danger"> 
-            {email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && 'Enter a valid email address.'}
+          <div className='mb-2'>
+            <input
+              type="email"
+              id="email"
+              placeholder="Email"
+              value={email}
+              onChange={handleEmailChange}
+              required
+              className="form-control form-control-lg"
+            />
+            <div className="form-text text-danger"> 
+              {email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && 'Enter a valid email address.'}
+            </div>
           </div>
-        </div>
 
-        <div className='mb-2'>
-          <input
-            type="password"
-            id="password"
-            placeholder="Password"
-            value={password}
-            onChange={handlePasswordChange}
-            required
-            className="ct-input rounded-3 p-3  fs-6 bg-grey"
-          />
-          <div className="form-text text-danger"> 
-            {password && password.length < 6 && 'Password must be at least 6 characters long.'}
+          <div className='mb-2'>
+            <input
+              type="password"
+              id="password"
+              placeholder="Password"
+              value={password}
+              onChange={handlePasswordChange}
+              required
+              className="form-control form-control-lg"
+            />
+            <div className="form-text text-danger"> 
+              {password && password.length < 6 && 'Password must be at least 6 characters long.'}
+            </div>
           </div>
-        </div>
 
-        <button type="submit" 
-        className="ct-button btn btn-primary mt-3 w-100 p-3"
-        disabled={!isFormValid}>
-          Log In
-        </button>
-      
-        
+          <button type="submit" 
+            className="btn btn-primary btn-lg w-100" 
+            disabled={!isFormValid}>
+            Log In
+          </button>
 
-        <p className="text-center mt-3 fs-6 " style={{color:"grey"}}>
-        Don't have an account? <Link to="/signup " className='text-decoration-none text-primary-custom' >Sign up</Link>
-      </p>
+          <p className="text-center mt-3 fs-5" style={{ color: "grey" }}>
+            Don't have an account? <Link to="/signup" className='text-decoration-none text-primary-custom'>Sign up</Link>
+          </p>
 
-      <p className="text-center mt-5 fs-6 " style={{color:"grey"}}>
-        <Link to="/ " className='text-decoration-none text-primary-custom' >Go to Home</Link>
-      </p>
-
-      </form>
-      
+          <p className="text-center mt-5 fs-5" style={{ color: "grey" }}>
+            <Link to="/" className='text-decoration-none text-primary-custom'>Go to Home</Link>
+          </p>
+        </form>
+      </div>
     </div>
   );
 }
