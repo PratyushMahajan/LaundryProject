@@ -14,17 +14,19 @@ import LaundriesPage from "./Components/Shops/shoplist";
 
 import '@fontsource/poppins';
 import NavBar1 from "./Components/Commonfile/NavBar1";
+import AboutUs from "./Components/Home/AboutUs";
 
 function App() {
   //Hiding navbar at login, signup
   const location = useLocation();
-  const hideNavbarRoutes = ["/login", "/signup","/users","/pickup","/ShopOwner"];
+  const hideNavbarRoutes = ["/login", "/signup","/users","/pickup","/ShopOwner","/shopOwner"];
 
   return (
     <>
       {!hideNavbarRoutes.includes(location.pathname) && <NavBar1 />}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutUs />} />
         <Route path="/users" element={<User />} />
         <Route path="/pickup" element={<Pickup />} />
         <Route path="/ShopOwner" element={<ShopOwner />} />

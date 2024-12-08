@@ -8,8 +8,8 @@ const Sidebar = () => {
       <h3 className="text-primary">Delivery</h3>
       <Nav defaultActiveKey="/dashboard" className="flex-column">
         <Nav.Link href="/dashboard">Dashboard</Nav.Link>
-        {/* <Nav.Link href="/orders">Orders</Nav.Link>
-        <Link className="nav-link" to="/completed-orders">Completed Orders</Link> */}
+        <Nav.Link href="/orders">Orders</Nav.Link>
+        <Link className="nav-link" to="/completed-orders">Completed Orders</Link>
       </Nav>
     </div>
   );

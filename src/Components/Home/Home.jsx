@@ -3,6 +3,7 @@ import { Box, Select, MenuItem, Typography, Container, Button, Snackbar, Alert }
 import Cards from "../FrontCards/Cards";
 import Flatpickr from 'react-flatpickr';
 import 'flatpickr/dist/themes/confetti.css';
+import AboutUs from './AboutUs';
 
 const Home = () => {
   const [selectedCity, setSelectedCity] = useState(''); 
@@ -152,7 +153,10 @@ const Home = () => {
           </Box>
         </Container>
       </Box>
-
+      
+      {/* <div id="about">
+      <AboutUs/>
+      </div> */}
       <div>
         <div className="flex items-center justify-center " >
           <h1 className="text-5xl font-bold text-orange-500 mt-10" style={{ fontFamily: 'Poppins, sans-serif'}}>OUR SERVICES</h1>
