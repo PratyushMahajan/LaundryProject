@@ -12,10 +12,12 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name="users")
@@ -23,6 +25,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(callSuper = true, exclude = { "password" })
 public class Users extends BaseEntity{
 		 
 	@Column(length=80)	
@@ -33,18 +36,20 @@ public class Users extends BaseEntity{
     private String phoneNumber;
 	@Column(length=500)
 	private String address;
-	@Column(length=50)
+	@Column(length=550)
 	private String password;
 	@Column(length=80)
 	private String city;
 	@Column(length=30)
 	@Enumerated(EnumType.STRING)
+  
+
 	private UserRoles userRoles;
 	// private LocalDateTime preferredDeliveryTime;
 	private LocalDate pickUpDate;
 	
 	@ManyToOne
-	@JoinColumn(name = "shop_id") // Foreign key column name
+	@JoinColumn(name = "shop_id") 
 	private Shop shop;
 	
 	 @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
