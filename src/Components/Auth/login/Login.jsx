@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 
 function LoginForm() {
   const [email, setEmail] = useState('');
@@ -14,6 +16,7 @@ function LoginForm() {
     const isPasswordValid = password.length >= 6;
     setIsFormValid(isEmailValid && isPasswordValid);
   };
+  const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -27,14 +30,29 @@ function LoginForm() {
     validateForm();
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!isFormValid) {
       setError('Please enter valid email and password.');
       return;
     }
-    console.log('Logged in:', { email, password });
-    // Add your login logic here
+
+    try {
+      const response = await axios.post('http://localhost:8080/users/signin', {
+        email,
+        password,
+      });
+      const token = response.data.token;
+
+           
+            localStorage.setItem("token", token);
+      console.log('Login successful:', response.data);
+      navigate("/");
+      
+    } catch (err) {
+      console.error('Login error:', err);
+      setError(err.response?.data?.message || 'An error occurred during login.');
+    }
   };
 
   return (

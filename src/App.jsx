@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 
 import Home from "./Components/Home/Home";
 import LoginForm from "./Components/Auth/login/Login";
-import SignupForm from "./Components/Auth/signup/Signup";
+// import SignupForm from "./Components/Auth/signup/Signup";
 import User from "./Components/Dashboard/User";
 import Pickup from "./Components/Dashboard/Pickup";
 import Footer from "./Components/Commonfile/Footer";
@@ -15,6 +15,7 @@ import LaundriesPage from "./Components/Shops/shoplist";
 import '@fontsource/poppins';
 import NavBar1 from "./Components/Commonfile/NavBar1";
 import AboutUs from "./Components/Home/AboutUs";
+import SignUp1 from "./Components/Auth/signup/SignUp1";
 
 function App() {
   //Hiding navbar at login, signup
@@ -31,7 +32,7 @@ function App() {
         <Route path="/pickup" element={<Pickup />} />
         <Route path="/ShopOwner" element={<ShopOwner />} />
         <Route path="/login" element={<LoginForm />} />
-        <Route path="/signup" element={<SignupForm />} />
+        <Route path="/signup" element={<SignUp1 />} />
         <Route path="/partner" element={<Partner />} />
         <Route path="/contact" element={<ProfileSlider/>} />
         <Route path="/shoplist" element={<LaundriesPage/>} />
