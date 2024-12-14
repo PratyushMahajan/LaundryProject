@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import {
   Box,
   Typography,
@@ -64,11 +64,17 @@ const LaundriesPage = () => {
     ? laundriesData.filter((laundry) => laundry.services.includes(filter))
     : laundriesData;
 
+    const navigate = useNavigate();
+    
+    const handleAddItemsClick = () => {
+      navigate('/orders'); 
+    };
+
   return (
     <Box sx={{ fontFamily: 'Poppins, sans-serif' }}>
       <Box
         sx={{
-          height: '50vh',
+          height: '40vh',
           backgroundColor: '#1976d2',
           display: 'flex',
           alignItems: 'center',
@@ -234,6 +240,7 @@ const LaundriesPage = () => {
               {/* Proceed Button */}
               <Button
                 variant="contained"
+                onClick={handleAddItemsClick} 
                 sx={{
                   width: '200px',
                   height: '40px',

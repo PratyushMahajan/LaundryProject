@@ -87,6 +87,7 @@ const Home = () => {
               sx={{
                 bgcolor: '#fff',
                 fontWeight: 700,
+                width:210,
                 fontFamily: 'Poppins, sans-serif',
                 color: selectedCity ? 'black' : 'gray', 
                 '& .MuiSelect-select': {

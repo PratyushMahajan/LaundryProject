@@ -16,6 +16,7 @@ import '@fontsource/poppins';
 import NavBar1 from "./Components/Commonfile/NavBar1";
 import AboutUs from "./Components/Home/AboutUs";
 import SignUp1 from "./Components/Auth/signup/SignUp1";
+import Orders from "./Components/Shops/orders";
 
 function App() {
   //Hiding navbar at login, signup
@@ -36,6 +37,7 @@ function App() {
         <Route path="/partner" element={<Partner />} />
         <Route path="/contact" element={<ProfileSlider/>} />
         <Route path="/shoplist" element={<LaundriesPage/>} />
+        <Route path="/orders" element={<Orders/>} />
       </Routes>
   
         < Footer/>
