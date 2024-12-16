@@ -1,28 +1,17 @@
-.admin-dashboard {
-    font-family: Arial, sans-serif;
+.bg-orange {
+    background-color: orange !important;
   }
   
-  aside {
-    border-right: 1px solid #ccc;
-    height: 100vh;
+  .btn-orange {
+    background-color: orange !important;
+    border: none;
   }
   
-  main {
-    padding: 20px;
+  .btn-orange:hover {
+    background-color: #e67e22 !important;
   }
   
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  th, td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #ddd;
-  }
-  
-  th {
-    background-color: #f4f4f4;
+  .nav-link {
+    transition: background-color 0.3s ease;
   }
   

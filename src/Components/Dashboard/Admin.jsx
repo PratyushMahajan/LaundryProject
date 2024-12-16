@@ -2,15 +2,13 @@ import React, { useEffect, useState } from 'react';
 import api from './api';
 import './Admin.css';
 
-
 const Admin = () => {
-  const [activeSection, setActiveSection] = useState('orders'); // Default section
+  const [activeSection, setActiveSection] = useState('orders');
   const [orders, setOrders] = useState([]);
   const [customers, setCustomers] = useState([]);
   const [delivery, setDelivery] = useState([]);
   const [shopOwners, setShopOwners] = useState([]);
 
-  // Fetch all data from the backend
   useEffect(() => {
     if (activeSection === 'orders') fetchOrders();
     if (activeSection === 'customers') fetchCustomers();
@@ -55,147 +53,154 @@ const Admin = () => {
   };
 
   return (
-    <div className="admin-dashboard" style={{ display: 'flex' }}>
-      {/* Sidebar */}
-      <aside style={{ width: '200px', padding: '20px', backgroundColor: '#f4f4f4' }}>
-        <h3>Admin Menu</h3>
-        <ul style={{ listStyleType: 'none', padding: 0 }}>
-          <li
-            style={{ padding: '10px', cursor: 'pointer', backgroundColor: activeSection === 'orders' ? '#ddd' : '' }}
-            onClick={() => setActiveSection('orders')}
-          >
-            Orders
-          </li>
-          <li
-            style={{ padding: '10px', cursor: 'pointer', backgroundColor: activeSection === 'customers' ? '#ddd' : '' }}
-            onClick={() => setActiveSection('customers')}
-          >
-            Customers
-          </li>
-          <li
-            style={{ padding: '10px', cursor: 'pointer', backgroundColor: activeSection === 'delivery' ? '#ddd' : '' }}
-            onClick={() => setActiveSection('delivery')}
-          >
-            Delivery
-          </li>
-          <li
-            style={{ padding: '10px', cursor: 'pointer', backgroundColor: activeSection === 'shopowners' ? '#ddd' : '' }}
-            onClick={() => setActiveSection('shopowners')}
-          >
-            Shop Owners
-          </li>
-        </ul>
-      </aside>
+    <div className="container-fluid" style={{ height: '100vh', backgroundColor: '#ffffff' }}>
+      <div className="row h-100">
+        {/* Sidebar */}
+        <aside className="col-2 bg-dark text-white py-3">
+          <h4 className="text-center mb-4" style={{ color: 'orange' }}>Admin Control</h4>
+          <ul className="nav flex-column">
+            <li className="nav-item">
+              <button
+                className={`nav-link btn ${activeSection === 'orders' ? 'btn-orange' : 'btn-dark'} text-white w-100`}
+                onClick={() => setActiveSection('orders')}
+              >
+                Orders
+              </button>
+            </li>
+            <li className="nav-item mt-2">
+              <button
+                className={`nav-link btn ${activeSection === 'customers' ? 'btn-orange' : 'btn-dark'} text-white w-100`}
+                onClick={() => setActiveSection('customers')}
+              >
+                Customers
+              </button>
+            </li>
+            <li className="nav-item mt-2">
+              <button
+                className={`nav-link btn ${activeSection === 'delivery' ? 'btn-orange' : 'btn-dark'} text-white w-100`}
+                onClick={() => setActiveSection('delivery')}
+              >
+                Delivery
+              </button>
+            </li>
+            <li className="nav-item mt-2">
+              <button
+                className={`nav-link btn ${activeSection === 'shopowners' ? 'btn-orange' : 'btn-dark'} text-white w-100`}
+                onClick={() => setActiveSection('shopowners')}
+              >
+                Shop Owners
+              </button>
+            </li>
+          </ul>
+        </aside>
 
-      {/* Main Content */}
-      <main style={{ flex: 1, padding: '20px' }}>
-        <h1>Admin Dashboard</h1>
-        {activeSection === 'orders' && (
-          <section>
-            <h2>All Orders</h2>
-            <table border="1">
-              <thead>
-                <tr>
-                  <th>Order ID</th>
-                  <th>Items</th>
-                  <th>No. of Items</th>
-                  <th>Price</th>
-                  <th>Pickup</th>
-                  <th>Dropoff</th>
-                </tr>
-              </thead>
-              <tbody>
-                {orders.map((order) => (
-                  <tr key={order.orderId}>
-                    <td>{order.orderId}</td>
-                    <td>{order.items}</td>
-                    <td>{order.numberOfItems}</td>
-                    <td>{order.price}</td>
-                    <td>{order.pickup}</td>
-                    <td>{order.dropoff}</td>
+        {/* Main Content */}
+        <main className="col-10 py-4">
+          <h1 className="text-center mb-5" style={{ color: 'orange' }}>Admin Dashboard</h1>
+          {activeSection === 'orders' && (
+            <section>
+              <h3 className="text-black">All Orders</h3>
+              <table className="table table-striped">
+                <thead className="bg-orange text-white">
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Items</th>
+                    <th>No. of Items</th>
+                    <th>Price</th>
+                    <th>Pickup</th>
+                    <th>Dropoff</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </section>
-        )}
-
-        {activeSection === 'customers' && (
-          <section>
-            <h2>All Customers</h2>
-            <table border="1">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Contact</th>
-                  <th>Address</th>
-                </tr>
-              </thead>
-              <tbody>
-                {customers.map((customer) => (
-                  <tr key={customer.id}>
-                    <td>{customer.id}</td>
-                    <td>{customer.name}</td>
-                    <td>{customer.contact}</td>
-                    <td>{customer.address}</td>
+                </thead>
+                <tbody>
+                  {orders.map((order) => (
+                    <tr key={order.orderId}>
+                      <td>{order.orderId}</td>
+                      <td>{order.items}</td>
+                      <td>{order.numberOfItems}</td>
+                      <td>{order.price}</td>
+                      <td>{order.pickup}</td>
+                      <td>{order.dropoff}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </section>
+          )}
+          {activeSection === 'customers' && (
+            <section>
+              <h3 className="text-black">All Customers</h3>
+              <table className="table table-striped">
+                <thead className="bg-orange text-white">
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Address</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </section>
-        )}
-
-        {activeSection === 'delivery' && (
-          <section>
-            <h2>All Delivery Personnel</h2>
-            <table border="1">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Contact</th>
-                </tr>
-              </thead>
-              <tbody>
-                {delivery.map((person) => (
-                  <tr key={person.id}>
-                    <td>{person.id}</td>
-                    <td>{person.name}</td>
-                    <td>{person.contact}</td>
+                </thead>
+                <tbody>
+                  {customers.map((customer) => (
+                    <tr key={customer.id}>
+                      <td>{customer.id}</td>
+                      <td>{customer.name}</td>
+                      <td>{customer.contact}</td>
+                      <td>{customer.address}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </section>
+          )}
+          {activeSection === 'delivery' && (
+            <section>
+              <h3 className="text-black">All Delivery Personnel</h3>
+              <table className="table table-striped">
+                <thead className="bg-orange text-white">
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Contact</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </section>
-        )}
-
-        {activeSection === 'shopowners' && (
-          <section>
-            <h2>All Shop Owners</h2>
-            <table border="1">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Shop Name</th>
-                  <th>Location</th>
-                  <th>Contact</th>
-                </tr>
-              </thead>
-              <tbody>
-                {shopOwners.map((owner) => (
-                  <tr key={owner.id}>
-                    <td>{owner.id}</td>
-                    <td>{owner.shopName}</td>
-                    <td>{owner.location}</td>
-                    <td>{owner.contact}</td>
+                </thead>
+                <tbody>
+                  {delivery.map((person) => (
+                    <tr key={person.id}>
+                      <td>{person.id}</td>
+                      <td>{person.name}</td>
+                      <td>{person.contact}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </section>
+          )}
+          {activeSection === 'shopowners' && (
+            <section>
+              <h3 className="text-black">All Shop Owners</h3>
+              <table className="table table-striped">
+                <thead className="bg-orange text-white">
+                  <tr>
+                    <th>ID</th>
+                    <th>Shop Name</th>
+                    <th>Location</th>
+                    <th>Contact</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </section>
-        )}
-      </main>
+                </thead>
+                <tbody>
+                  {shopOwners.map((owner) => (
+                    <tr key={owner.id}>
+                      <td>{owner.id}</td>
+                      <td>{owner.shopName}</td>
+                      <td>{owner.location}</td>
+                      <td>{owner.contact}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </section>
+          )}
+        </main>
+      </div>
     </div>
   );
 };
