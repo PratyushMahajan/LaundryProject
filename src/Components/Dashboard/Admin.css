@@ -1,0 +1,28 @@
+.admin-dashboard {
+    font-family: Arial, sans-serif;
+  }
+  
+  aside {
+    border-right: 1px solid #ccc;
+    height: 100vh;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+  }
+  
