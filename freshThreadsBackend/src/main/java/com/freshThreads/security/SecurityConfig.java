@@ -2,50 +2,69 @@ package com.freshThreads.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.Customizer;
-import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import lombok.AllArgsConstructor;
+import java.util.Collection;
 
-@EnableWebSecurity // - required in earlier spring sec versions -enabled by default
-@Configuration // equivalent to bean config xml file
-@AllArgsConstructor
+@Configuration
+@EnableWebSecurity
 public class SecurityConfig {
 
-	private PasswordEncoder encoder;
-	private CustomJwtAuthenticationFilter jwtFilter;
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/", "/login", "/signup", "/about", "/contact").permitAll()
+                .requestMatchers("/partner").hasRole("SHOP")
+                .requestMatchers("/pickup").hasRole("DELIVERY")
+                .requestMatchers("/admin").hasRole("ADMIN")
+                .anyRequest().authenticated()
+            )
+            .formLogin(form -> form
+                .loginPage("/login")
+                .successHandler(roleBasedRedirectHandler()) 
+                .permitAll()
+            )
+            .logout(logout -> logout
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/")
+                .permitAll()
+            );
 
-	// Configure the bean to customize spring security filter chain
-	@Bean
-	public SecurityFilterChain authorizeRequests(HttpSecurity http) throws Exception {
-		http.csrf(customizer -> customizer.disable())
-				.authorizeHttpRequests(request -> request
-						.requestMatchers("/products/view",
-								"/users/signup", "/users/signin", "/v*/api-doc*/**",
-								"/swagger-ui/**")
-						.permitAll()
-						.requestMatchers(HttpMethod.OPTIONS).permitAll()
+        return http.build();
+    }
 
-						.requestMatchers("/products/purchase/**").hasRole("USER")
-						.requestMatchers("/users/add", "/users/delete").hasRole("ADMIN").anyRequest()
-						.authenticated())
-	//			.httpBasic(Customizer.withDefaults()) replacing Basic Auth by custom JWT based auth
-				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-				.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
-		return http.build();
-	}
+    @Bean
+    public AuthenticationSuccessHandler roleBasedRedirectHandler() {
+        return (request, response, authentication) -> {
+            String redirectUrl = "/";
+            Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
 
-	// configure AuthMgr as a spring bean
-	@Bean
-	public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
-		return config.getAuthenticationManager();
-	}
+            for (GrantedAuthority authority : authorities) {
+                String role = authority.getAuthority();
+                switch (role) {
+                    case "ROLE_USER":
+                        redirectUrl = "/";
+                        break;
+                    case "ROLE_SHOP":
+                        redirectUrl = "/partner";
+                        break;
+                    case "ROLE_DELIVERY":
+                        redirectUrl = "/pickup";
+                        break;
+                    case "ROLE_ADMIN":
+                        redirectUrl = "/admin";
+                        break;
+                }
+            }
+
+            response.sendRedirect(request.getContextPath() + redirectUrl);
+        };
+    }
 }
